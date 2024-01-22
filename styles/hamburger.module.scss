@@ -1,0 +1,85 @@
+@import "./variables.scss";
+//hamburger icon
+#icon-fixed {
+   cursor: pointer;
+   width: 50px;
+   height: 50px;
+   #icon-container {
+      position: relative;
+      height: 100%;
+      #hamburger {
+         width: 50px;
+         height: 21px;
+         position: absolute;
+         top: 14.5px;
+         left: 0;
+         div {
+            transition: 0.4s;
+            background-color: $dark-grey;
+            width: 50px;
+            height: 3px;
+            &:nth-child(1) {
+               transition-delay: 0.3s;
+            }
+            &:nth-child(2) {
+               margin: 6px 0;
+               transition-delay: 0.4s;
+            }
+            &:nth-child(3) {
+               transition-delay: 0.5s;
+            }
+         }
+      }
+      #cross {
+         height: 50px;
+         width: 50px;
+         position: absolute;
+         transform: rotate(45deg);
+         div {
+            transition: 0.4s;
+            background-color: $dark-grey;
+            &:nth-child(1) {
+               transition-delay: 0s;
+               position: absolute;
+               top: calc(50% - 1.5px);
+               width: 0px;
+               height: 3px;
+            }
+            &:nth-child(2) {
+               position: absolute;
+               left: calc(50% - 1.5px);
+               height: 0px;
+               width: 3px;
+               transition-delay: 0.1s;
+            }
+         }
+      }
+   }
+}
+
+#icon-fixed.active {
+   #icon-container {
+      #hamburger div {
+         width: 0;
+         &:nth-child(1) {
+            transition-delay: 0s;
+         }
+         &:nth-child(2) {
+            transition-delay: 0.1s;
+         }
+         &:nth-child(3) {
+            transition-delay: 0.2s;
+         }
+      }
+      #cross div {
+         &:nth-child(1) {
+            width: 50px;
+            transition-delay: 0.3s;
+         }
+         &:nth-child(2) {
+            height: 50px;
+            transition-delay: 0.4s;
+         }
+      }
+   }
+}

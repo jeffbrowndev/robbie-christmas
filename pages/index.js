@@ -1,5 +1,6 @@
-import NavBar from "@/components/NavBar";
+import NavBar from "@/components/Navigation/NavBar";
 import Head from "next/head";
+import { MobileContextProvider } from "../context/MobileContext";
 
 export default function Home() {
   return (
@@ -8,7 +9,9 @@ export default function Home() {
         <title>Robbie Christmas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <NavBar />
+      <MobileContextProvider>
+        <NavBar />
+      </MobileContextProvider>
     </>
   );
 }

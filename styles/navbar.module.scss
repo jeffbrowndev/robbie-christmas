@@ -1,29 +1,35 @@
 @import "./variables.scss";
+@import "./mixins.scss";
 
 .navbar {
-  width: 100vw;
-  background: $light-grey;
-  padding: 20px 1vw;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  .navbar-logo {
-    width: 300px;
-    height: auto;
-  }
-  ul {
-    list-style: none;
-    display: flex;
-    font-family: $roboto-bold;
-    color: $dark-grey;
-    letter-spacing: 2px;
-    font-size: 14px;
-    li {
+  @include navbar();
+  .navbar-links {
+    @include navbar-links;
+    .navbar-link {
       margin: 0 10px;
       cursor: pointer;
     }
     & :hover {
       color: $accent;
     }
+  }
+  .navbar-logo {
+    @include mQ(1200px) {
+      width: 225px;
+      height: auto;
+    }
+  }
+}
+
+.nav-links-mobile {
+  @include navbar-links();
+  background: $light-grey;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  .navbar-link {
+    margin: 15px 0;
   }
 }

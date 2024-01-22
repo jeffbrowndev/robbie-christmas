@@ -1,0 +1,31 @@
+@mixin mQ($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}
+@mixin mQmin($width) {
+  @media screen and (min-width: $width) {
+    @content;
+  }
+}
+
+@mixin navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100vw;
+  background: $light-grey;
+  position: fixed;
+  padding: 15px 25px 15px 15px;
+  @include mQ($desktop-min) {
+    padding: 10px 15px 10px 10px;
+  }
+}
+
+@mixin navbar-links {
+  display: flex;
+  font-family: $roboto-bold;
+  color: $dark-grey;
+  letter-spacing: 2px;
+  font-size: 14px;
+}

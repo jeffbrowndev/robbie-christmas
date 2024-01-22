@@ -19,9 +19,13 @@
 $light-grey: #EDEDED;
 $dark-grey: #4D4D4D;
 $accent: #B99360;
+$opaque-grey: rgba(0, 0, 0, 0.5);
 
 // font variables
 $hoefler: "hoefler";
 $hoefler-black: "hoefler-black";
 $hoefler-italic: "hoefler-italic";
-$roboto-bold: "roboto-bold"
+$roboto-bold: "roboto-bold";
+
+// size variables
+$desktop-min: 1200px;
