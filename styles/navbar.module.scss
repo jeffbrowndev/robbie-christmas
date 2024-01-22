@@ -1,0 +1,29 @@
+@import "./variables.scss";
+
+.navbar {
+  width: 100vw;
+  background: $light-grey;
+  padding: 20px 1vw;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  .navbar-logo {
+    width: 300px;
+    height: auto;
+  }
+  ul {
+    list-style: none;
+    display: flex;
+    font-family: $roboto-bold;
+    color: $dark-grey;
+    letter-spacing: 2px;
+    font-size: 14px;
+    li {
+      margin: 0 10px;
+      cursor: pointer;
+    }
+    & :hover {
+      color: $accent;
+    }
+  }
+}

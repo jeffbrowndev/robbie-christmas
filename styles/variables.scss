@@ -1,0 +1,27 @@
+@font-face {
+  font-family: 'hoefler';
+  src: url('../public/fonts/hoefler-text.ttf');
+}
+@font-face {
+  font-family: 'hoefler-black';
+  src: url('../public/fonts/hoefler-text-black.ttf');
+}
+@font-face {
+  font-family: 'hoefler-italic';
+  src: url('../public/fonts/hoefler-text-italic.ttf');
+}
+@font-face {
+  font-family: 'roboto-bold';
+  src: url('../public/fonts/Roboto-Bold.ttf');
+}
+
+// color variables
+$light-grey: #EDEDED;
+$dark-grey: #4D4D4D;
+$accent: #B99360;
+
+// font variables
+$hoefler: "hoefler";
+$hoefler-black: "hoefler-black";
+$hoefler-italic: "hoefler-italic";
+$roboto-bold: "roboto-bold"
