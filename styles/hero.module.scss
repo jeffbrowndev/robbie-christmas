@@ -2,15 +2,13 @@
 @import "./mixins.scss";
 
 .hero {
-  height: 100vh;
   width: 100vw;
   background: url("../public/images/hero-background.png");
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
   display: flex;
-  align-items: center;
-  padding-top: 75px;
+  padding: $margin-large 0;
   .hero-content {
     display: flex;
     align-items: center;
@@ -35,18 +33,31 @@
         width: 100%;
       }
     }
-  }
-  .hero-image {
-    width: 550px;
-    height: auto;
-    @include mQ($desktop-small) {
-      width: 48%;
-    }
-    @include mQ($tablet) {
-      display: none;
+    .hero-image {
+      width: 550px;
+      height: auto;
+      @include mQ($desktop-small) {
+        width: 48%;
+      }
+      @include mQ($tablet) {
+        display: none;
+      }
     }
   }
   @include mQ($desktop-small) {
-    padding-top: 60px;
+    padding: $margin-large-desktop-small 0;
+  }
+  .service-cards {
+    margin-top: $margin-large;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    @include mQ($desktop-small) {
+      margin-top: $margin-large-desktop-small
+    }
+    @include mQ($mobile) {
+      flex-direction: column;
+      margin-top: calc($margin-large-desktop-small - 60px);
+    }
   }
 }

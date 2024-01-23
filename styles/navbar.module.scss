@@ -8,6 +8,8 @@
   width: 100vw;
   height: 75px;
   position: fixed;
+  top: 0;
+  left: 0;
   padding: 15px 25px 15px 15px;
   z-index: 9999;
   @include mQ($desktop-small) {
@@ -43,6 +45,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  z-index: 3;
   .navbar-link {
     margin: 10px 0;
   }

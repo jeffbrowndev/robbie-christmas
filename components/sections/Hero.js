@@ -4,6 +4,12 @@ import heroImage from "@/public/images/hero-image.jpg";
 import Image from 'next/image';
 import AccentLine from '../common/AccentLine';
 import AccentButton from "../common/AccentButton";
+import ServiceCard from '../common/ServiceCard';
+
+// service card images
+import liveMusic from "@/public/images/live-music.jpg";
+import weddings from "@/public/images/weddings.jpg";
+import corporateEvents from "@/public/images/corporate-events.jpg";
 
 const Hero = () => {
   return (
@@ -21,6 +27,11 @@ const Hero = () => {
               <AccentButton text="LISTEN" />
               <AccentButton text="MAKE AN INQUIRY" />
             </div>
+        </div>
+        <div className={styles['service-cards']}>
+          <ServiceCard text="LIVE MUSIC" image={liveMusic} />
+          <ServiceCard text="WEDDINGS" image={weddings} />
+          <ServiceCard text="CORPORATE EVENTS" image={corporateEvents} />
         </div>
       </MaxWidthContainer>
     </div>

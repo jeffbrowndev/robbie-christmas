@@ -28,7 +28,7 @@ $light-grey: #EDEDED;
 $medium-grey: #7A7A7A;
 $dark-grey: #4D4D4D;
 $accent: #B99360;
-$opaque-grey: rgba(0, 0, 0, 0.5);
+$black: black;
 
 // font variables
 $hoefler: "hoefler";
@@ -42,6 +42,9 @@ $roboto-bold: "roboto-bold";
 $container-max: 1200px;
 $desktop-small: 1250px;
 $tablet: 900px;
+$mobile: 500px;
+$margin-large: 160px;
+$margin-large-desktop-small: 100px;
 $margin-small: 40px;
 $margin-small-desktop-small: 25px;
 
