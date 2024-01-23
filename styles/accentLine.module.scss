@@ -1,0 +1,15 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.accent-line {
+  width: 75px;
+  height: 1px;
+  margin: $margin-small 0;
+  background: $accent;
+  @include mQ($desktop-small) {
+    margin: $margin-small-desktop-small 0;
+  }
+  @include mQ($tablet) {
+    margin: $margin-small-desktop-small auto;
+  }
+}

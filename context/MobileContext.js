@@ -5,7 +5,7 @@ export const MobileContext = createContext();
 export const MobileContextProvider = ({ children }) => {
   const [mobile, setMobile] = useState(undefined);
 
-  const checkMobile = () => window.innerWidth < 1200 ? setMobile(true) : setMobile(false);
+  const checkMobile = () => window.innerWidth < 1250 ? setMobile(true) : setMobile(false);
 
   // set mobile on initial width
   useEffect(() => checkMobile(), []);

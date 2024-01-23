@@ -6,12 +6,13 @@
   justify-content: space-between;
   align-items: center;
   width: 100vw;
-  background: $desktop-min;
+  height: 75px;
   position: fixed;
   padding: 15px 25px 15px 15px;
   z-index: 9999;
-  @include mQ($desktop-min) {
+  @include mQ($desktop-small) {
     padding: 10px 15px 10px 10px;
+    height: 60px;
   }
   .navbar-links {
     @include navbar-links;
@@ -26,7 +27,7 @@
   .navbar-logo {
     width: 300px;
     height: auto;
-    @include mQ(1200px) {
+    @include mQ($desktop-small) {
       width: 225px;
     }
   }

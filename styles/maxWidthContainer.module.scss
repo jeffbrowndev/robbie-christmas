@@ -1,6 +1,10 @@
 @import "./variables.scss";
+@import "./mixins.scss";
 
 .max-width-container {
-  max-width: $desktop-min;
+  width: $container-max;
   margin: auto;
+  @include mQ($desktop-small) {
+    width: 98%;
+  }
 }

@@ -11,12 +11,21 @@
   src: url('../public/fonts/hoefler-text-italic.ttf');
 }
 @font-face {
+  font-family: 'roboto';
+  src: url('../public/fonts/Roboto-Regular.ttf');
+}
+@font-face {
+  font-family: 'roboto-light';
+  src: url('../public/fonts/Roboto-Light.ttf');
+}
+@font-face {
   font-family: 'roboto-bold';
   src: url('../public/fonts/Roboto-Bold.ttf');
 }
 
 // color variables
 $light-grey: #EDEDED;
+$medium-grey: #7A7A7A;
 $dark-grey: #4D4D4D;
 $accent: #B99360;
 $opaque-grey: rgba(0, 0, 0, 0.5);
@@ -25,7 +34,20 @@ $opaque-grey: rgba(0, 0, 0, 0.5);
 $hoefler: "hoefler";
 $hoefler-black: "hoefler-black";
 $hoefler-italic: "hoefler-italic";
+$roboto-light: "roboto-light";
+$roboto: "roboto";
 $roboto-bold: "roboto-bold";
 
 // size variables
-$desktop-min: 1200px;
+$container-max: 1200px;
+$desktop-small: 1250px;
+$tablet: 900px;
+$margin-small: 40px;
+$margin-small-desktop-small: 25px;
+
+$h1: 64px;
+$h1-desktop-small: 48px;
+$h1-tablet: 36px;
+
+$h3: 24px;
+$h3-desktop-small: 18px;

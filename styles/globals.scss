@@ -1,5 +1,25 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+h1 {
+  font-size: $h1;
+  @include mQ($desktop-small) {
+    font-size: $h1-desktop-small;
+  }
+  @include mQ($tablet) {
+    font-size: $h1-tablet;
+  }
+}
+
+h3 {
+  font-size: $h3;
+  @include mQ($desktop-small) {
+    font-size: $h3-desktop-small;
+  }
 }
