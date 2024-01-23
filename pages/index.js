@@ -1,4 +1,5 @@
-import NavBar from "@/components/Navigation/NavBar";
+import NavBar from "@/components/navigation/NavBar";
+import Hero from "../components/sections/Hero";
 import Head from "next/head";
 import { MobileContextProvider } from "../context/MobileContext";
 
@@ -11,6 +12,7 @@ export default function Home() {
       </Head>
       <MobileContextProvider>
         <NavBar />
+        <Hero />
       </MobileContextProvider>
     </>
   );

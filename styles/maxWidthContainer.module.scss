@@ -1,0 +1,6 @@
+@import "./variables.scss";
+
+.max-width-container {
+  max-width: $desktop-min;
+  margin: auto;
+}
