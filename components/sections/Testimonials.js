@@ -31,11 +31,13 @@ const Testimonials = () => {
             <Image 
               id={styles['arrow-left']} 
               src={arrowLeft} 
+              alt="arrow left"
               onClick={() => handleClick(index - 1)} />
-            <p><span>" </span>{testimonials[index].text}<span> "</span></p>
+            <p><span>&quot </span>{testimonials[index].text}<span> &quot</span></p>
             <Image 
               id={styles['arrow-right']} 
               src={arrowRight} 
+              alt="arrow right"
               onClick={() => handleClick(index + 1)} /> 
           </div>
           <h4>- {testimonials[index].name}</h4>
@@ -43,6 +45,7 @@ const Testimonials = () => {
         <div className={styles['dots']}>
           {testimonials.map((t, i) => 
             <div 
+              key={i}
               onClick={() => handleClick(i)}
               className={`${styles['dot']} ${i === index ? styles['active'] : ''}`} />)}
         </div>
