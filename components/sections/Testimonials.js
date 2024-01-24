@@ -1,14 +1,14 @@
 import { useContext, useState } from "react";
 import MaxWidthContainer from "../layouts/MaxWidthContainer";
 import styles from "@/styles/testimonials.module.scss";
-import { Context } from "@/context/Context";
+import { DataContext } from "@/context/DataContext";
 import Image from "next/image";
 
 import arrowLeft from "@/public/images/arrow-left.png";
 import arrowRight from "@/public/images/arrow-right.png";
 
 const Testimonials = () => {
-  const { testimonials } = useContext(Context);
+  const { testimonials } = useContext(DataContext);
   const [index, setIndex] = useState(0)
 
   const handleClick = (index) => {

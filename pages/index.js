@@ -1,7 +1,7 @@
 import NavBar from "@/components/navigation/NavBar";
 import Hero from "../components/sections/Hero";
 import Head from "next/head";
-import { Context } from "../context/Context";
+import { DataContext } from "../context/DataContext";
 import Testimonials from "@/components/sections/Testimonials";
 import LineSeparator from "@/components/common/LineSeparator";
 import Listen from "@/components/sections/Listen";
@@ -25,6 +25,32 @@ export const getStaticProps = () => {
           name: "Kylie H",
           text: "I don't have enough words to explain how wonderful Robbie is! He sang at our wedding ceremony, as well as the reception, and he was one of my favorite parts of our day! He has such a beautiful voice, and gives you pages and pages of songs to pick from. He works with couples beforehand to choose song/music styles for your event, and was even willing to learn new songs that weren't on his list."
         }
+      ],
+      videos: [
+        {
+          src: "https://www.youtube.com/watch?v=0c1rGBiH_J8&ab_channel=RobbieChristmas",
+          thumbnail: "/images/thumbnails/after-the-storm.jpg"
+        },
+        {
+          src: "https://www.youtube.com/watch?v=b2lK8KqgW6k&ab_channel=RobbieChristmas",
+          thumbnail: "/images/thumbnails/runaway.jpg"
+        },
+        {
+          src: "https://www.youtube.com/watch?v=Sr6rHW50K-E&ab_channel=RobbieChristmas",
+          thumbnail: "/images/thumbnails/taking-too-long.jpg"
+        },
+        {
+          src: "https://www.youtube.com/watch?v=NHBCWEzac4A&ab_channel=RobbieChristmas",
+          thumbnail: "/images/thumbnails/mad-world.jpg"
+        },
+        {
+          src: "https://www.youtube.com/watch?v=PQ1b3EpkBcA&ab_channel=RobbieChristmas",
+          thumbnail: "/images/thumbnails/layla.jpg"
+        },
+        {
+          src: "https://www.youtube.com/watch?v=_omAM4RG13o&ab_channel=RobbieChristmas",
+          thumbnail: "/images/thumbnails/thinkin-bout-you.jpg"
+        },
       ]
     }
   }
@@ -37,13 +63,13 @@ export default function App(props) {
         <title>Robbie Christmas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
-      <Context.Provider value={props}>
+      <DataContext.Provider value={props}>
         <NavBar />
         <Hero />
         <Testimonials />
         <LineSeparator />
         <Listen />
-      </Context.Provider>
+      </DataContext.Provider>
     </>
   );
 }

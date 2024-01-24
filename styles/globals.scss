@@ -17,6 +17,13 @@ h1 {
   }
 }
 
+h2 {
+  font-family: $hoefler;
+  color: $dark-grey;
+  font-size: $h2;
+  font-weight: 300;
+}
+
 h3 {
   font-size: $h3;
   @include mQ($desktop-small) {
