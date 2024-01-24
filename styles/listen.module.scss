@@ -3,9 +3,15 @@
 
 .listen-content {
   margin: $margin-large 0;
+  @include mQ($desktop-small) {
+    margin: $margin-large-desktop-small 0;
+  }
   h2 {
     text-align: center;
-    margin-bottom: $margin-small;
+    margin-bottom: $margin-large;
+    @include mQ($desktop-small) {
+      margin-bottom: $margin-large-desktop-small;
+    }
   }
   .video-gallery {
     display: flex;
@@ -13,7 +19,7 @@
     flex-wrap: wrap;
     .video-container {
       aspect-ratio: 16 / 9;
-      background: $medium-grey;
+      background: $black;
       width: 33%;
       margin-bottom: 0.5%;
       @include mQ($tablet) {
@@ -39,6 +45,58 @@
       .play-button {
         position: absolute;
       }
+    }
+  }
+  .audio {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: calc($margin-large - $margin-xsmall);
+    width: 100%;
+    flex-wrap: wrap;
+    .song {
+      display: flex;
+      justify-content: left;
+      align-items: center;
+      margin-bottom: $margin-xsmall;
+      width: 25%;
+      @include mQ($desktop-small) {
+        width: calc(100% / 3);
+      }
+      @include mQ($tablet) {
+        width: 50%;
+      }
+      @include mQ($tablet-small) {
+        width: 100%;
+        border-bottom: 1px solid $light-grey;
+        padding: 10px 0;
+        margin: 0;
+      }
+      .audio-data {
+        margin-left: 10px;
+        h3 {
+          font-family: $hoefler;
+          font-weight: 300;
+          color: $accent;
+          font-size: 20px;
+          margin-bottom: 3px;
+        }
+        p {
+          font-family: $roboto-light;
+        }
+        @include mQ($tablet-small) {
+          width: 100%;
+          text-align: center;
+        }
+      }
+      .play-button {
+        @include mQ($tablet-small) {
+          width: 30px;
+          height: 30px;
+        }
+      }
+    }
+    @include mQ($desktop-small) {
+      margin-bottom: calc($margin-large-desktop-small - $margin-xsmall);
     }
   }
   @include mQ($desktop-small) {
