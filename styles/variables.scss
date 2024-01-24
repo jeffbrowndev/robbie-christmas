@@ -22,10 +22,13 @@
   font-family: 'roboto-bold';
   src: url('../public/fonts/Roboto-Bold.ttf');
 }
-
 @font-face {
   font-family: 'roboto-italic';
   src: url('../public/fonts/Roboto-Italic.ttf');
+}
+@font-face {
+  font-family: 'roboto-italic-bold';
+  src: url('../public/fonts/Roboto-BoldItalic.ttf');
 }
 
 // color variables
@@ -43,6 +46,7 @@ $roboto-light: "roboto-light";
 $roboto: "roboto";
 $roboto-bold: "roboto-bold";
 $roboto-italic: "roboto-italic";
+$roboto-italic-bold: "roboto-italic-bold"; 
 
 // size variables
 $container-max: 1200px;
@@ -53,7 +57,7 @@ $margin-large: 160px;
 $margin-large-desktop-small: 100px;
 $margin-small: 40px;
 $margin-small-desktop-small: 25px;
-$line-height: 1.75;
+$line-height: 2;
 
 $h1: 64px;
 $h1-desktop-small: 48px;

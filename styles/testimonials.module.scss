@@ -18,7 +18,17 @@
       }
       span {
         color: $accent;
-        font-family: $roboto-bold;
+        font-family: $roboto-italic-bold;
+        font-size: 48px;
+        line-height: 0;
+      }
+      @include mQ($desktop-small) {
+        p {
+          font-size: 18px;
+        }
+        span {
+          font-size: 36px;
+        }
       }
     }
     h4 {

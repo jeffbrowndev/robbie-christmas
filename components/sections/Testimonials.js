@@ -33,7 +33,7 @@ const Testimonials = () => {
               src={arrowLeft} 
               alt="arrow left"
               onClick={() => handleClick(index - 1)} />
-            <p><span>&quot </span>{testimonials[index].text}<span> &quot</span></p>
+            <p><span>&quot; </span>{testimonials[index].text}<span> &quot;</span></p>
             <Image 
               id={styles['arrow-right']} 
               src={arrowRight} 
