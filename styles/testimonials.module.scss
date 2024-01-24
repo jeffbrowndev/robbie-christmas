@@ -1,0 +1,54 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.testimonials-content {
+  margin: $margin-large 0;
+  text-align: center;
+  color: $medium-grey;
+  font-size: 24px;
+  .testimonial {
+    .text-and-arrows {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      p {
+        font-family: $roboto-italic;
+        line-height: $line-height;
+        padding: 0 5%;
+      }
+      span {
+        color: $accent;
+        font-family: $roboto-bold;
+      }
+    }
+    h4 {
+      font-family: $hoefler;
+      margin: $margin-small 0;
+    }
+    @include mQ($desktop-small) {
+      p {
+        font-size: 18px;
+      }
+      h4 {
+        font-size: 22px;
+      }
+    }
+  }
+  .dots {
+    display: flex;
+    justify-content: center;
+    .dot {
+      width: 20px;
+      height: 20px;
+      border-radius: 20px;
+      background: $light-grey;
+      margin: 0 5px;
+    }
+    .active {
+      background: $accent !important;
+    }
+  }
+  @include mQ($desktop-small) {
+    margin: $margin-large-desktop-small 0;
+  }
+}

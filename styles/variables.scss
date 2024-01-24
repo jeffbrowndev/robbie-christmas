@@ -23,6 +23,11 @@
   src: url('../public/fonts/Roboto-Bold.ttf');
 }
 
+@font-face {
+  font-family: 'roboto-italic';
+  src: url('../public/fonts/Roboto-Italic.ttf');
+}
+
 // color variables
 $light-grey: #EDEDED;
 $medium-grey: #7A7A7A;
@@ -37,6 +42,7 @@ $hoefler-italic: "hoefler-italic";
 $roboto-light: "roboto-light";
 $roboto: "roboto";
 $roboto-bold: "roboto-bold";
+$roboto-italic: "roboto-italic";
 
 // size variables
 $container-max: 1200px;
@@ -47,6 +53,7 @@ $margin-large: 160px;
 $margin-large-desktop-small: 100px;
 $margin-small: 40px;
 $margin-small-desktop-small: 25px;
+$line-height: 1.75;
 
 $h1: 64px;
 $h1-desktop-small: 48px;

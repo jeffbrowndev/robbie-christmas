@@ -4,11 +4,9 @@ import logo from "../../public/images/rx-logo.png";
 import NavLinks from "./NavLinks";
 import NavLinksMobile from "./NavLinksMobile";
 import Hamburger from "./Hamburger";
-import { useContext, useState } from "react";
-import { MobileContext } from "@/context/MobileContext";
+import { useState } from "react";
 
 const NavBar = () => {
-  const { mobile } = useContext(MobileContext);
   const [active, setActive] = useState(false);
   const handleClick = () => setActive(!active);
 
@@ -19,9 +17,10 @@ const NavBar = () => {
           className={styles['navbar-logo']}
           src={logo}
           alt='RX Logo' />
-          {mobile ? <Hamburger handleClick={handleClick} active={active} /> : <NavLinks />}
+          <Hamburger handleClick={handleClick} active={active} />
+          <NavLinks />
       </div>
-      { mobile && <NavLinksMobile active={active} /> }
+      <NavLinksMobile active={active} />
     </>
   );
 }

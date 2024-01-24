@@ -25,6 +25,9 @@
     & :hover {
       color: $accent;
     }
+    @include mQ($desktop-small) {
+      display: none;
+    }
   }
   .navbar-logo {
     width: 300px;
@@ -41,12 +44,15 @@
   position: fixed;
   width: 100vw;
   height: 100vh;
-  display: flex;
+  display: none;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   z-index: 3;
   .navbar-link {
     margin: 10px 0;
+  }
+  @include mQ($desktop-small) {
+    display: flex;
   }
 }

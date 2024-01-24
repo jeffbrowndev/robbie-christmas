@@ -1,11 +1,7 @@
 import NavLink from "./NavLink";
 import styles from "../../styles/navbar.module.scss";
-import { MobileContext } from "@/context/MobileContext";
-import { useContext } from "react";
 
-const NavLinks = ({ active }) => {
-  const { mobile } = useContext(MobileContext) 
-
+const NavLinks = () => {
   return (
     <div className={styles['navbar-links']}>
       <NavLink text="LISTEN" />

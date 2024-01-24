@@ -1,9 +1,11 @@
 @import "./variables.scss";
+@import "./mixins.scss";
 //hamburger icon
 #icon-fixed {
    cursor: pointer;
    width: 35px;
    height: 35px;
+   display: none;
    #icon-container {
       position: relative;
       height: 100%;
@@ -54,6 +56,9 @@
             }
          }
       }
+   }
+   @include mQ($desktop-small) {
+      display: block;
    }
 }
 

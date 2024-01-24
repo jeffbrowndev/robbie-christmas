@@ -1,0 +1,7 @@
+@import "./variables.scss";
+
+.line-separator {
+  width: 100vw;
+  height: 2px;
+  background: $light-grey;
+}
