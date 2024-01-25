@@ -4,15 +4,31 @@ import logo from "../../public/images/rx-logo.png";
 import NavLinks from "./NavLinks";
 import NavLinksMobile from "./NavLinksMobile";
 import Hamburger from "./Hamburger";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const NavBar = () => {
   const [active, setActive] = useState(false);
+  const [scrolling, setScrolling] = useState(false);
   const handleClick = () => setActive(!active);
+
+  useEffect(() => {
+    const watchScroll = () => {
+      window.addEventListener("scroll", () => {         
+          if (window.scrollY > 0) {
+            setScrolling(true);
+          }
+          else {
+            setScrolling(false);
+          }
+      })
+    }
+
+    watchScroll();
+  });
 
   return (
     <>
-      <div className={styles['navbar']}>
+      <div className={scrolling ? styles['navbar-scrolling'] : styles['navbar']}>
         <Image
           className={styles['navbar-logo']}
           src={logo}

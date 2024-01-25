@@ -1,0 +1,38 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.weddings-content {
+  @include service-section-content();
+}
+
+.wedding-services {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: $margin-large;
+  .wedding-service {
+    width: 26%;
+    margin-bottom: $margin-small;
+    h2 {
+      font-size: 30px;
+      font-family: $hoefler;
+      font-weight: 300;
+      color: $accent;
+      margin-bottom: $margin-xsmall;
+    }
+    @include mQ($tablet) {
+      width: 30%;
+    }
+    @include mQ($tablet-small) {
+      width: 48%;
+    }
+    @include mQ($tablet-small) {
+      width: 100%;
+      text-align: center;
+    }
+  }
+  @include mQ($tablet) {
+    margin-bottom: $margin-large-desktop-small;
+  }
+}

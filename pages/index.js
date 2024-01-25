@@ -5,8 +5,11 @@ import { DataContext } from "../context/DataContext";
 import Testimonials from "@/components/sections/Testimonials";
 import LineSeparator from "@/components/common/LineSeparator";
 import Listen from "@/components/sections/Listen";
+import LiveMusic from "@/components/sections/LiveMusic";
+import Weddings from "@/components/sections/Weddings";
+import CorporateEvents from "@/components/sections/CorporateEvents";
 
-export const getStaticProps = () => {
+export const getStaticProps = async () => {
   return {
     props: {
       testimonials: [{
@@ -123,6 +126,12 @@ export default function App(props) {
         <Testimonials />
         <LineSeparator />
         <Listen />
+        <LineSeparator />
+        <LiveMusic />
+        <LineSeparator />
+        <Weddings />
+        <LineSeparator />
+        <CorporateEvents />
       </DataContext.Provider>
     </>
   );

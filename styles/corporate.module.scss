@@ -1,0 +1,6 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.corporate-content {
+  @include service-section-content();
+}

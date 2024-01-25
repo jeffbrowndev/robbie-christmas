@@ -16,3 +16,31 @@
   letter-spacing: 2px;
   font-size: 14px;
 }
+
+@mixin service-section-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $margin-large 0;
+  .image, .main-content {
+    width: 550px;
+    height: auto;
+    @include mQ($desktop-small) {
+      width: 48%;
+    }
+    @include mQ($tablet) {
+      width: 100%;
+    }
+  }
+  .image {
+    @include mQ($tablet) {
+      display: none;
+    }
+  }
+  @include mQ($tablet) {
+    flex-direction: column;
+    text-align: center;
+    width: 100%;
+    padding: $margin-large-desktop-small 0;
+  }
+}

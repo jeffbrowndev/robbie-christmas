@@ -1,0 +1,6 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.live-music-content {
+  @include service-section-content();
+}

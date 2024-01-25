@@ -1,7 +1,7 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
-.navbar {
+.navbar, .navbar-scrolling {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -12,6 +12,7 @@
   left: 0;
   padding: 15px 25px 15px 15px;
   z-index: 9999;
+  transition: $transition;
   @include mQ($desktop-small) {
     padding: 10px 15px 10px 10px;
     height: 60px;
@@ -38,9 +39,14 @@
   }
 }
 
+.navbar-scrolling {
+  background: white;
+  opacity: 0.9;
+}
+
 .nav-links-mobile {
   @include navbar-links();
-  background: $light-grey;
+  background: white;
   position: fixed;
   width: 100vw;
   height: 100vh;

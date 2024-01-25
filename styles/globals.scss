@@ -30,3 +30,10 @@ h3 {
     font-size: $h3-desktop-small;
   }
 }
+
+.main-text {
+  font-size: 16px;
+  font-family: $roboto-light;
+  color: $medium-grey;
+  line-height: 1.5;
+}
