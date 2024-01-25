@@ -40,16 +40,70 @@ export const getStaticProps = () => {
           thumbnail: "/images/thumbnails/taking-too-long.jpg"
         },
         {
-          src: "https://www.youtube.com/watch?v=NHBCWEzac4A&ab_channel=RobbieChristmas",
-          thumbnail: "/images/thumbnails/mad-world.jpg"
-        },
-        {
-          src: "https://www.youtube.com/watch?v=PQ1b3EpkBcA&ab_channel=RobbieChristmas",
-          thumbnail: "/images/thumbnails/layla.jpg"
-        },
-        {
           src: "https://www.youtube.com/watch?v=_omAM4RG13o&ab_channel=RobbieChristmas",
           thumbnail: "/images/thumbnails/thinkin-bout-you.jpg"
+        },
+      ],
+      audio: [
+        {
+          title: "Change The World",
+          artist: "Eric Clapton",
+          src: "/audio/change-the-world.mp3"
+        },
+        {
+          title: "Everybody Wants To Rule The World",
+          artist: "Tears for Fears",
+          src: "/audio/everybody-wants-to-rule-the-world.mp3"
+        },
+        {
+          title: "Father and Son",
+          artist: "Cat Stevens",
+          src: "/audio/father-and-son.mp3"
+        },
+        {
+          title: "God Only Knows",
+          artist: "The Beach Boys",
+          src: "/audio/god-only-knows.mp3"
+        },
+        {
+          title: "I Can't Tell You Why",
+          artist: "The Eagles",
+          src: "/audio/i-cant-tell-you-why.mp3"
+        },
+        {
+          title: "If Not for You",
+          artist: "George Harrison",
+          src: "/audio/if-not-for-you.mp3"
+        },
+        {
+          title: "Isn't She Lovely",
+          artist: "Stevie Wonder",
+          src: "/audio/isnt-she-lovely.mp3"
+        },
+        {
+          title: "Layla",
+          artist: "Eric Clapton",
+          src: "/audio/layla.wav"
+        },
+        {
+          title: "Mad World",
+          artist: "Tears for Fears",
+          src: "/audio/mad-world.wav"
+        },
+        {
+          title: "Operator",
+          artist: "Jim Croce",
+          src: "/audio/operator.mp3"
+        },
+        {
+          title: "Thinkin Bout You",
+          artist: "Frank Ocean",
+          src: "/audio/thinkin-bout-you.wav"
+        },
+        {
+          title: "Windows Are Rolled Down",
+          artist: "Amos Lee",
+          src: "/audio/windows-are-rolled-down.mp3"
         },
       ]
     }
