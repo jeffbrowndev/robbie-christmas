@@ -14,10 +14,7 @@
   .wedding-service {
     width: 26%;
     margin-bottom: $margin-small;
-    h2 {
-      font-size: 30px;
-      font-family: $hoefler;
-      font-weight: 300;
+    h3 {
       color: $accent;
       margin-bottom: $margin-xsmall;
     }
@@ -33,6 +30,6 @@
     }
   }
   @include mQ($tablet) {
-    margin-bottom: $margin-large-desktop-small;
+    margin-bottom: calc($margin-large-desktop-small - $margin-small);
   }
 }

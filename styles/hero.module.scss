@@ -20,10 +20,14 @@
         font-weight: 300;
         color: $dark-grey;
       };
-      h3 {
+      p {
+        font-size: 24px;
         font-family: $roboto-light;
         font-weight: 500;
         color: $medium-grey;
+        @include mQ($desktop-small) {
+          font-size: 18px;
+        }
       }
       @include mQ($desktop-small) {
         width: 48%;

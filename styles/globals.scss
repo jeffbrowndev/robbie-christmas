@@ -26,9 +26,14 @@ h2 {
 
 h3 {
   font-size: $h3;
-  @include mQ($desktop-small) {
-    font-size: $h3-desktop-small;
-  }
+  font-family: $hoefler;
+  font-weight: 300;
+}
+
+h4 {
+  font-size: $h4;
+  font-family: $hoefler;
+  font-weight: 300;
 }
 
 .main-text {

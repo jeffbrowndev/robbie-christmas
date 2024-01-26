@@ -4,6 +4,7 @@ import Image from "next/image";
 import AccentLine from "../common/AccentLine";
 import AccentButton from "../common/AccentButton";
 import corporateMain from "@/public/images/corporate-main.jpg";
+import Clients from "./Clients";
 
 const CorporateEvents = () => {
   return (
@@ -25,6 +26,7 @@ const CorporateEvents = () => {
           <AccentButton text={"VIEW SONG LIST"} />
         </div>
       </div>
+      <Clients />
     </MaxWidthContainer>
   );
 }

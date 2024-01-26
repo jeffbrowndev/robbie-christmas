@@ -23,7 +23,7 @@ const Hero = () => {
             <div className={styles['hero-content-right']}>
               <h1>Live music for weddings, corporate events, and more.</h1>
               <AccentLine />
-              <h3>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</h3>
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
               <AccentButton text="LISTEN" />
               <AccentButton text="MAKE AN INQUIRY" />
             </div>
