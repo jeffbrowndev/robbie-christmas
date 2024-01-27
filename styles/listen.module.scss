@@ -90,7 +90,9 @@
       margin-bottom: calc($margin-large-desktop-small - $margin-xsmall);
     }
   } & .song:not(:last-child) {
-    border-bottom: 1px solid $light-grey;
+    @include mQ($tablet-small) {
+      border-bottom: 1px solid $light-grey;
+    }
   }
   @include mQ($desktop-small) {
     margin: $margin-large-desktop-small 0;
