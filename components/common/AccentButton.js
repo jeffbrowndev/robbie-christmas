@@ -1,8 +1,8 @@
 import styles from "@/styles/accentButton.module.scss";
 
-const AccentButton = ({ text }) => {
+const AccentButton = ({ text, action }) => {
   return (
-    <button className={styles['accent-button']}>
+    <button onClick={action} className={styles['accent-button']}>
       {text}
     </button>
   )

@@ -8,8 +8,40 @@ import Listen from "@/components/sections/Listen";
 import LiveMusic from "@/components/sections/LiveMusic";
 import Weddings from "@/components/sections/Weddings";
 import CorporateEvents from "@/components/sections/CorporateEvents";
+import Calendar from "@/components/sections/Calendar";
+import { DateTime } from "luxon";
+
+const getEventLogo = (summary) => {
+  if (summary.includes('Willows Lodge'))
+    return "/images/event-logos/willows-lodge.png";
+  if (summary.includes('The Cottage'))
+    return "/images/event-logos/the-cottage.png";
+  if (summary.includes('The Lodge'))
+    return "/images/event-logos/the-lodge.png";
+
+  return "/images/event-logos/rx.png"; 
+}
+
+const formatEvent = (e) => {
+  return {
+    summary: e.summary,
+    date: DateTime.fromISO(e.start.dateTime).toFormat('DDDD'),
+    start: DateTime.fromISO(e.start.dateTime).toFormat('t'),
+    end: DateTime.fromISO(e.end.dateTime).toFormat('t'),
+    logo: getEventLogo(e.summary)
+  };
+}
 
 export const getStaticProps = async () => {
+  const apiKey = process.env.apiKey;
+  const id = process.env.id;
+  const now = new Date().toISOString();
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${apiKey}&timeMin=${now}&singleEvents=true&orderBy=startTime`;
+
+  const res = await fetch(url);
+  const data = await res.json();
+  const events = data.items.map(event => formatEvent(event));
+
   return {
     props: {
       testimonials: [{
@@ -108,7 +140,8 @@ export const getStaticProps = async () => {
           artist: "Amos Lee",
           src: "/audio/windows-are-rolled-down.mp3"
         },
-      ]
+      ],
+      events
     }
   }
 }
@@ -128,6 +161,7 @@ export default function App(props) {
         <Listen />
         <LineSeparator />
         <LiveMusic />
+        <Calendar />
         <LineSeparator />
         <Weddings />
         <LineSeparator />

@@ -1,0 +1,83 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.calendar {
+  margin-bottom: $margin-large;
+  h2 {
+    text-align: center;
+    margin-bottom: $margin-small;
+    font-size: 36px;
+  }
+  .events {
+    .event {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .event-content-left {
+        width: 800px;
+        h3 {
+          color: $accent;
+          margin-bottom: 10px;
+        }
+        #mobile-time {
+          display: none;
+        }
+      }
+      .event-info {
+        font-family: $roboto;
+        color: $medium-grey;
+        font-size: 20px;
+        white-space: nowrap;
+      }
+      @include mQ($desktop-small) {
+        .event-content-left {
+          margin: 0 25px;
+        }
+        h3 {
+          font-size: $h3-desktop-small;
+        }
+        .event-info {
+          font-size: 16px;
+        }
+        .logo {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      @include mQ($tablet-small) {
+        line-height: 1.5;
+        padding: 10px 0;
+        .event-content-left {
+          margin: 0 0 0 10px;
+        }
+        h3 {
+          font-size: 18px;
+          margin-bottom: 0 !important;
+        }
+        .event-info {
+          font-size: 14px;
+        }
+        #mobile-time {
+          display: block !important;
+        }
+        #desktop-time {
+          display: none;
+        }
+      }
+      @include mQ($mobile) {
+        .logo {
+          width: 75px;
+          height: 75px;
+        }
+      }
+    }
+  } & .event:not(:last-child) {
+    border-bottom: 2px solid $light-grey;
+  }
+  .button-container {
+    text-align: center;
+  }
+  @include mQ($tablet) {
+    margin-bottom: $margin-large-desktop-small;
+  }
+}
