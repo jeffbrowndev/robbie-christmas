@@ -72,7 +72,7 @@
       }
     }
   } & .event:not(:last-child) {
-    border-bottom: 2px solid $light-grey;
+    border-bottom: 1px solid $light-grey;
   }
   .button-container {
     text-align: center;

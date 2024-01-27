@@ -17,8 +17,9 @@
     text-align: center;
     padding: 25px;
     z-index: 1;
+    font-weight: 800;
     @include mQ($desktop-small) {
-      font-size: 20px;
+      font-size: 24px;
     }
   }
   @include mQ($mobile) {
@@ -40,6 +41,6 @@
   display: block;
   padding-bottom: 100%;
   @include mQ($mobile) {
-    padding-bottom: 50%;
+    padding-bottom: 60%;
   }
 }
