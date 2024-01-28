@@ -22,26 +22,42 @@ const getEventLogo = (summary) => {
   return "/images/event-logos/rx.png"; 
 }
 
-const formatEvent = (e) => {
-  return {
-    summary: e.summary,
-    date: DateTime.fromISO(e.start.dateTime).toFormat('DDDD'),
-    start: DateTime.fromISO(e.start.dateTime).toFormat('t'),
-    end: DateTime.fromISO(e.end.dateTime).toFormat('t'),
-    logo: getEventLogo(e.summary)
-  };
+const getEvents = async () => {
+  const apiKey = process.env.SECRET_API_KEY;
+  const id = process.env.SECRET_CALENDAR_ID;
+  const now = new Date().toISOString();
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${apiKey}&timeMin=${now}&singleEvents=true&orderBy=startTime`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return data.items.map(e => {
+    return {
+      summary: e.summary,
+      date: DateTime.fromISO(e.start.dateTime).toFormat('DDDD'),
+      start: DateTime.fromISO(e.start.dateTime).toFormat('t'),
+      end: DateTime.fromISO(e.end.dateTime).toFormat('t'),
+      logo: getEventLogo(e.summary)
+    };
+  });
+}
+
+const getSongs = async () => {
+  const apiKey = process.env.SECRET_API_KEY;
+  const id = process.env.SECRET_SHEETS_ID;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/Sheet1?key=${apiKey}`;
+  const res = await fetch(url);
+  const data = await res.json();
+
+  return data.values.map(s => {
+    return {
+      artist: s[0],
+      title: s[1],
+      genre: s[2],
+    };
+  });
 }
 
 export const getStaticProps = async () => {
-  const apiKey = process.env.apiKey;
-  const id = process.env.id;
-  const now = new Date().toISOString();
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${apiKey}&timeMin=${now}&singleEvents=true&orderBy=startTime`;
-
-  const res = await fetch(url);
-  const data = await res.json();
-  const events = data.items.map(event => formatEvent(event));
-
   return {
     props: {
       testimonials: [{
@@ -141,7 +157,8 @@ export const getStaticProps = async () => {
           src: "/audio/windows-are-rolled-down.mp3"
         },
       ],
-      events
+      events: await getEvents(),
+      songs: await getSongs()
     }
   }
 }
