@@ -23,8 +23,8 @@ const getEventLogo = (summary) => {
 }
 
 const getEvents = async () => {
-  const apiKey = process.env.SECRET_API_KEY;
-  const id = process.env.SECRET_CALENDAR_ID;
+  const apiKey = process.env.API_KEY;
+  const id = process.env.CALENDAR_ID;
   const now = new Date().toISOString();
   const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${apiKey}&timeMin=${now}&singleEvents=true&orderBy=startTime`;
   const res = await fetch(url);
@@ -42,8 +42,8 @@ const getEvents = async () => {
 }
 
 const getSongs = async () => {
-  const apiKey = process.env.SECRET_API_KEY;
-  const id = process.env.SECRET_SHEETS_ID;
+  const apiKey = process.env.API_KEY;
+  const id = process.env.SHEETS_ID;
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/Sheet1?key=${apiKey}`;
   const res = await fetch(url);
   const data = await res.json();
