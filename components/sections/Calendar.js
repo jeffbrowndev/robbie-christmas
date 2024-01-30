@@ -3,7 +3,6 @@ import { useContext, useState, useEffect } from "react";
 import Event from "@/components/common/Event";
 import styles from "@/styles/calendar.module.scss";
 import MaxWidthContainer from "../layouts/MaxWidthContainer";
-import AccentButton from "../common/AccentButton";
 
 const Calendar = () => {
   const { events } = useContext(DataContext);
@@ -25,7 +24,9 @@ const Calendar = () => {
           {visibleEvents.map(data => <Event data={data} />)}
         </div>
         <div className={styles['button-container']}>
-          <AccentButton className={styles['show-more']} text="SHOW MORE" action={showMore} />
+        <button onClick={() => showMore()} className={styles['accent-button']}>
+          SHOW MORE
+        </button>
         </div>
       </div>
     </MaxWidthContainer>

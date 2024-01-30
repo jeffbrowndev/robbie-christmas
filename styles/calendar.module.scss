@@ -4,6 +4,9 @@
 .calendar {
   padding-top: $margin-large;
   margin-bottom: $margin-large;
+  .accent-button {
+    @include accent-button();
+  }
   h2 {
     text-align: center;
     margin-bottom: $margin-small;
