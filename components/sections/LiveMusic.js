@@ -8,20 +8,20 @@ import liveMusic from "@/public/images/live-music-main.jpg";
 const LiveMusic = () => {
   return (
     <MaxWidthContainer>
-      <div className={styles['live-music-content']}>
+      <div id='live-music' className={styles['live-music-content']}>
         <Image className={styles['image']} src={liveMusic} />
         <div className={styles['main-content']}>
           <h2>Live Music</h2>
           <AccentLine />
           <p className='main-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-            officia deserunt mollit anim id est laborum.
+            You can catch Robbie performing regularly at various venues in the Seattle area, 
+            often with no cover charge. During these performances, Robbie showcases his extensive 
+            repertoire of over 600 favorite songs, occasionally including original compositions. 
+            It's an excellent opportunity to gauge how Robbie's music can seamlessly complement your event. 
+            If you're planning to attend one of his performances, feel free to send us an email in advance, 
+            and Robbie will be delighted to greet you personally.
           </p>
-          <AccentButton text={"LISTEN"} />
+          <AccentButton text={"LISTEN"} dest='listen' />
         </div>
       </div>
     </MaxWidthContainer>

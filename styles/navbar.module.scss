@@ -57,6 +57,7 @@
   z-index: 3;
   .navbar-link {
     margin: 10px 0;
+    cursor: pointer;
   }
   @include mQ($desktop-small) {
     display: flex;

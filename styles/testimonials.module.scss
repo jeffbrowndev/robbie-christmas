@@ -6,11 +6,18 @@
   text-align: center;
   color: $medium-grey;
   font-size: 24px;
+  min-height: 365px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   .testimonial {
     .text-and-arrows {
       display: flex;
       justify-content: space-between;
       align-items: center;
+      #arrow-left, #arrow-right {
+        cursor: pointer;
+      }
       p {
         font-family: $roboto-italic;
         line-height: $line-height;
@@ -53,6 +60,7 @@
       border-radius: 20px;
       background: $light-grey;
       margin: 0 5px;
+      cursor: pointer;
     }
     .active {
       background: $accent !important;

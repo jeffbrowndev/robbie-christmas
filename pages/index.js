@@ -10,6 +10,8 @@ import Weddings from "@/components/sections/Weddings";
 import CorporateEvents from "@/components/sections/CorporateEvents";
 import Calendar from "@/components/sections/Calendar";
 import { DateTime } from "luxon";
+import SongList from "@/components/sections/SongList";
+import Contact from "@/components/sections/Contact";
 
 const getEventLogo = (summary) => {
   if (summary.includes('Willows Lodge'))
@@ -44,15 +46,18 @@ const getEvents = async () => {
 const getSongs = async () => {
   const apiKey = process.env.API_KEY;
   const id = process.env.SHEETS_ID;
-  const url = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/Sheet1?key=${apiKey}`;
+  const url = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/Sheet1!A2:Z?key=${apiKey}`;
   const res = await fetch(url);
   const data = await res.json();
 
-  return data.values.map(s => {
+  return data.values.map((s, i) => {
     return {
+      index: i,
       artist: s[0],
       title: s[1],
       genre: s[2],
+      audio: s[3] || null,
+      playlist: false
     };
   });
 }
@@ -60,22 +65,23 @@ const getSongs = async () => {
 export const getStaticProps = async () => {
   return {
     props: {
-      testimonials: [{
-          name: "Diana J",
-          text: "I am so glad we found Robbie, and that he was available to play our wedding. He was very responsive and super patient with questions and requests, but more importantly, he is a very talented artist and our guests absolutely loved him. He played the music for our wedding, cocktail hour, and much of dinner before we switched over to a DJ, and it was absolutely perfect",
-        },
-        {
-          name: "Jennifer D",
-          text: "Robbie was AMAZING!! Thanks so much for making our wedding magical."
-        },
+      testimonials: [
         {
           name: "Ashley T",
           text: "We made the best choice hiring Robbie as the musician for our wedding! We have seen him play at various wineries and events over the years and knew right when we got engaged that we needed him to play at our wedding. We had him play during our ceremony, cocktail hour, dinner, and 'first' dances, and couldn't have been happier. Incredible voice and talent aside (seriously - he is amazing), he was such a pleasure to work with."
         },
         {
+          name: "Diana J",
+          text: "I am so glad we found Robbie, and that he was available to play our wedding. He was very responsive and super patient with questions and requests, but more importantly, he is a very talented artist and our guests absolutely loved him. He played the music for our wedding, cocktail hour, and much of dinner before we switched over to a DJ, and it was absolutely perfect",
+        },
+        {
           name: "Kylie H",
           text: "I don't have enough words to explain how wonderful Robbie is! He sang at our wedding ceremony, as well as the reception, and he was one of my favorite parts of our day! He has such a beautiful voice, and gives you pages and pages of songs to pick from. He works with couples beforehand to choose song/music styles for your event, and was even willing to learn new songs that weren't on his list."
-        }
+        },
+        {
+          name: "Jennifer D",
+          text: "Robbie was AMAZING!! Thanks so much for making our wedding magical."
+        },
       ],
       videos: [
         {
@@ -183,6 +189,9 @@ export default function App(props) {
         <Weddings />
         <LineSeparator />
         <CorporateEvents />
+        <LineSeparator />
+        <SongList />
+        <Contact />
       </DataContext.Provider>
     </>
   );

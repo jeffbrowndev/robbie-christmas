@@ -2,6 +2,7 @@
 @import "./mixins.scss";
 
 .calendar {
+  padding-top: $margin-large;
   margin-bottom: $margin-large;
   h2 {
     text-align: center;
@@ -79,5 +80,6 @@
   }
   @include mQ($tablet) {
     margin-bottom: $margin-large-desktop-small;
+    padding-top: $margin-large-desktop-small;
   }
 }

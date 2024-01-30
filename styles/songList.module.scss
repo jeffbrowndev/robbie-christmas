@@ -1,0 +1,145 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.song-list {
+  margin: $margin-large 0;
+  margin-bottom: $margin-large;
+  .song-list-header {
+    text-align: center;
+    h2 {
+      margin-bottom: $margin-xsmall;
+    }
+  }
+  .song-list-container {
+    margin-top: $margin-large;
+    font-family: $roboto;
+    color: $medium-grey;
+    .playlist-column {
+      width: 10%;
+    }
+    .artist-column {
+      width: 30%;
+      display: flex;
+      align-items: center;
+    }
+    .title-column {
+      width: 30%;
+      display: flex;
+      align-items: center;
+    }
+    .genre-column {
+      width: 25%;
+    }
+    .audio-column {
+      width: 5%;
+    }
+    .song-list-head {
+      display: flex;
+      align-items: center;
+      padding: 10px 37px 10px 10px;
+      font-weight: 800;
+      background-color: $light-grey;
+      color: $accent;
+      @include mQ($tablet) {
+        font-size: 12px;
+      }
+      .carat {
+        color: $medium-grey;
+        font-size: 16px;
+        margin-left: 10px;
+        cursor: pointer;
+      }
+      select {
+        color: $medium-grey;
+        outline: none;
+        border: none;
+        padding: 5px;
+        font-family: $roboto;
+        margin-left: 5px;
+      }
+    }
+    .scrolling-song-list {
+      scrollbar-width: thin;
+      height: 500px;
+      overflow-y: scroll;
+      @include mQ($tablet) {
+        font-size: 14px;
+      }
+      .song {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        padding: 10px 20px;
+        border-bottom: 1px solid $light-grey;
+        transition: $transition;
+        cursor: pointer;
+        input {
+          cursor: pointer;
+        }
+      } & .song:hover {
+        background: $light-grey;
+      }
+    }
+    .controls {
+      margin-bottom: $margin-xsmall;
+      display: flex;
+      justify-content: space-between;
+      @include mQ($tablet) {
+        display: block;
+      }
+      .search {
+        width: 100%;
+        .input-row {
+          display: flex;
+          align-items: baseline;
+          .search-box {
+            width: 50%;
+            padding: 15px;
+            font-size: 16px;
+            border: 1px solid $lighter-grey;
+            color: $medium-grey;
+            outline: none;
+            margin-right: 25px;
+          }
+          .search-box::placeholder {
+            color: $lighter-grey;
+          }
+          .controls-right {
+            width: 70%;
+            display: flex;
+            justify-content: space-between;
+            align-content: baseline;
+            .filters {
+              display: flex;
+              flex-direction: column;
+              justify-content: center;
+              margin: 0 !important;
+              .checkbox {
+                margin: 0 !important;
+                cursor: pointer;
+              }
+            }
+          }
+        }
+      }
+    }
+    @include mQ($tablet) {
+      .song {
+        padding: 10px 0!important;
+        font-size: 12px !important;
+      }
+      .playlist-column, .audio-column {
+        display: none;
+      }
+      .artist-column, .title-column, .genre-column {
+        width: calc(100% / 3);
+      }
+      .title-column {
+        width: 30%;
+      }
+      .genre-column {
+        width: 30%;
+      }
+    }
+  }
+}

@@ -19,7 +19,7 @@ const Calendar = () => {
 
   return (
     <MaxWidthContainer>
-      <div className={styles['calendar']}>
+      <div className={styles['calendar']} id="calendar">
         <h2>Calendar</h2>
         <div className={styles['events']}>
           {visibleEvents.map(data => <Event data={data} />)}

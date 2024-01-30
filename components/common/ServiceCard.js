@@ -1,9 +1,16 @@
 import styles from "@/styles/serviceCard.module.scss";
 import Image from "next/image";
 
-const ServiceCard = ({ text, image }) => {
+const ServiceCard = ({ text, image, dest }) => {
+
+  const scroll = () => {    
+    const target = document.getElementById(dest);
+
+    target.scrollIntoView();
+  }
+
   return (
-    <div className={styles['service-card']}>
+    <div onClick={() => scroll()} className={styles['service-card']}>
       <Image
         className={styles['service-card-image']}
         src={image}

@@ -9,47 +9,49 @@ import WeddingService from "../common/WeddingService";
 const weddingServices = [
   {
     title: "Rehearsal Dinners",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    description: "Enjoy live renditions of your chosen songs, creating an atmosphere of excitement and anticipation for you and your wedding party as you look forward to your big day."
   },
   {
     title: "Pre-Ceremony",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    description: "Set the tone for your wedding as guests arrive, mingle, and eagerly await your ceremony with a curated playlist of songs that reflects your love story."
   },
   {
     title: "Ceremony",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    description: "Walk down the aisle with heartfelt, live renditions of songs reflecting your journey and future to create a uniquely unforgettable moment, unmatched by any recording."
   },
   {
     title: "Cocktail Hour",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    description: "Create a warm and vibrant atmosphere for you and your community to enjoy the festivities against the backdrop of a thoughtfully selected set of songs performed live."
   },
   {
     title: "Dinner",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    description: "Relax and engage in deeper conversations over dinner. Accompanied by a selection of live music, carefully chosen to complement the dining experience."
   },
   {
     title: "First Dances",
-    description: "Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    description: "Cherish emotional and intimate first dances with live renditions of songs that resonate with your love story, creating unforgettable memories for you and your guests."
   },
 ]
 
 const Weddings = () => {
   return (
     <MaxWidthContainer>
-      <div className={styles['weddings-content']}>
+      <div id="weddings" className={styles['weddings-content']}>
         <div className={styles['main-content']}>
           <h2>Weddings</h2>
           <AccentLine />
           <p className='main-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-            officia deserunt mollit anim id est laborum.
+            With over 15 years of experience in the music industry, Robbie Christmas
+            has not only garnered an ardent following in the Pacific Northwest but has also 
+            established an exceptional connection with engaged couples seeking the perfect
+            musical ambiance for their weddings, engagements, and rehearsal dinners. His elegant 
+            sound is a combination of lush, compelling vocal stylings with remarkable acoustic 
+            guitar accompaniment. His professionalism and sensitivity make for a meaningful 
+            collaborative experience when curating the song selections for your perfect day 
+            handpicked from Robbie's extensive repertoire of over 600 cherished favorites.
           </p>
-          <AccentButton text={"LISTEN"} />
-          <AccentButton text={"VIEW SONG LIST"} />
+          <AccentButton text={"LISTEN"} dest='listen' />
+          <AccentButton text={"VIEW SONG LIST"} dest='song-list' />
         </div>
         <Image className={styles['image']} src={weddingsMain} />
       </div>

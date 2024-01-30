@@ -21,17 +21,22 @@ const Hero = () => {
             src={heroImage}
             alt='Robbie Christmas' />
             <div className={styles['hero-content-right']}>
-              <h1>Live music for weddings, corporate events, and more.</h1>
+              <h1>Intimate, Memorable, & Captivating Live Music.</h1>
+              <h3>Tailored To Make Any Moment The Perfect Moment.</h3>
               <AccentLine />
-              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-              <AccentButton text="LISTEN" />
-              <AccentButton text="MAKE AN INQUIRY" />
+              <p>
+                Setting the tone in the Pacific Northwest with 15+ years of experience 
+                and offering a catalog of over 600 popular songs tailored for each unique 
+                event and celebration.
+              </p>
+              <AccentButton text="LISTEN" dest='listen' />
+              <AccentButton text="MAKE AN INQUIRY" dest='contact' />
             </div>
         </div>
         <div className={styles['service-cards']}>
-          <ServiceCard text="LIVE MUSIC" image={liveMusic} />
-          <ServiceCard text="WEDDINGS" image={weddings} />
-          <ServiceCard text="CORPORATE EVENTS" image={corporateEvents} />
+          <ServiceCard text="LIVE MUSIC" image={liveMusic} dest={'live-music'} />
+          <ServiceCard text="WEDDINGS" image={weddings} dest={'weddings'} />
+          <ServiceCard text="CORPORATE EVENTS" image={corporateEvents} dest={'corporate-events'} />
         </div>
       </MaxWidthContainer>
     </div>

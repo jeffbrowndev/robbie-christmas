@@ -3,4 +3,5 @@
 
 .live-music-content {
   @include service-section-content();
+  padding-bottom: 0 !important;
 }

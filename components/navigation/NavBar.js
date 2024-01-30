@@ -33,10 +33,10 @@ const NavBar = () => {
           className={styles['navbar-logo']}
           src={logo}
           alt='RX Logo' />
-          <Hamburger handleClick={handleClick} active={active} />
-          <NavLinks />
+        <Hamburger handleClick={handleClick} active={active} />
+        <NavLinks />
       </div>
-      <NavLinksMobile active={active} />
+      <NavLinksMobile active={active} setActive={setActive} />
     </>
   );
 }

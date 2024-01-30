@@ -1,8 +1,15 @@
 import styles from "@/styles/accentButton.module.scss";
 
-const AccentButton = ({ text, action }) => {
+const AccentButton = ({ text, dest }) => {
+  
+  const scroll = () => {
+    const target = document.getElementById(dest);
+
+    target.scrollIntoView();
+  }
+
   return (
-    <button onClick={action} className={styles['accent-button']}>
+    <button onClick={() => scroll()} className={styles['accent-button']}>
       {text}
     </button>
   )

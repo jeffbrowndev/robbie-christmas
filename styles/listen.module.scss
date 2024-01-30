@@ -2,9 +2,9 @@
 @import "./mixins.scss";
 
 .listen-content {
-  margin: $margin-large 0;
+  padding: $margin-large 0;
   @include mQ($desktop-small) {
-    margin: $margin-large-desktop-small 0;
+    padding: $margin-large-desktop-small 0;
   }
   h2 {
     text-align: center;
@@ -40,13 +40,13 @@
       }
     }
   }
-  .audio {
+  .all-audio {
     display: flex;
     justify-content: space-between;
     margin-bottom: calc($margin-large - $margin-xsmall);
     width: 100%;
     flex-wrap: wrap;
-    .song {
+    .audio {
       display: flex;
       justify-content: left;
       align-items: center;
@@ -89,7 +89,7 @@
     @include mQ($desktop-small) {
       margin-bottom: calc($margin-large-desktop-small - $margin-xsmall);
     }
-  } & .song:not(:last-child) {
+  } & .audio:not(:last-child) {
     @include mQ($tablet-small) {
       border-bottom: 1px solid $light-grey;
     }

@@ -9,21 +9,20 @@ import Clients from "./Clients";
 const CorporateEvents = () => {
   return (
     <MaxWidthContainer>
-      <div className={styles['corporate-content']}>
+      <div id="corporate-events" className={styles['corporate-content']}>
         <Image className={styles['image']} src={corporateMain} />
         <div className={styles['main-content']}>
           <h2>Corporate Events</h2>
           <AccentLine />
           <p className='main-text'>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor 
-            incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud 
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. 
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu 
-            fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui 
-            officia deserunt mollit anim id est laborum.
+            Over 15 years of experience performing has established Robbie Christmas 
+            as a leading performer in the Pacific Northwest; earning him an ardent following; 
+            cherished for his compelling voice and remarkable acoustic guitar accompaniment. 
+            Enhance your corporate event with Robbie’s personalized touch, selecting from his extensive 
+            600+ song collection to create a memorable, tailored soundtrack that your guests will remember.
           </p>
-          <AccentButton text={"LISTEN"} />
-          <AccentButton text={"VIEW SONG LIST"} />
+          <AccentButton text={"LISTEN"} dest='listen' />
+          <AccentButton text={"VIEW SONG LIST"} dest='song-list' />
         </div>
       </div>
       <Clients />
