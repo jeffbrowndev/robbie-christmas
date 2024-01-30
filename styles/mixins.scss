@@ -44,6 +44,9 @@
   .image, .main-content {
     width: 550px;
     height: auto;
+    p {
+      line-height: $line-height;
+    }
     @include mQ($desktop-small) {
       width: 48%;
     }

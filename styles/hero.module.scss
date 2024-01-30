@@ -22,10 +22,11 @@
         margin-bottom: $margin-xsmall;
       };
       p {
-        font-size: 24px;
+        font-size: 18px;
         font-family: $roboto-light;
         font-weight: 500;
         color: $medium-grey;
+        line-height: $line-height;
         @include mQ($desktop-small) {
           font-size: 18px;
         }
