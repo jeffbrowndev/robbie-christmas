@@ -20,7 +20,10 @@
         font-weight: 300;
         color: $dark-grey;
         margin-bottom: $margin-xsmall;
-      };
+      }
+      h3 {
+        color: $dark-grey;
+      }
       p {
         font-size: 18px;
         font-family: $roboto-light;
@@ -37,6 +40,9 @@
       @include mQ($tablet) {
         text-align: center;
         width: 100%;
+        h3 {
+          font-size: 24px !important;
+        }
       }
     }
     .hero-image {
