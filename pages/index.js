@@ -35,9 +35,9 @@ const getEvents = async () => {
   return data.items.map(e => {
     return {
       summary: e.summary,
-      date: DateTime.fromISO(e.start.dateTime).toFormat('DDDD'),
-      start: DateTime.fromISO(e.start.dateTime).toFormat('t'),
-      end: DateTime.fromISO(e.end.dateTime).toFormat('t'),
+      date: DateTime.fromISO(e.start.dateTime, {zone: "PST"}).toFormat('DDDD'),
+      start: DateTime.fromISO(e.start.dateTime, {zone: "PST"}).toFormat('t'),
+      end: DateTime.fromISO(e.end.dateTime, {zone: "PST"}).toFormat('t'),
       logo: getEventLogo(e.summary)
     };
   });
