@@ -4,3 +4,8 @@
 .accent-button {
   @include accent-button();
 }
+
+.accent-button:hover {
+  border-color: $medium-grey;
+  color: $medium-grey
+}

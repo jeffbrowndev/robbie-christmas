@@ -7,6 +7,10 @@
   .accent-button {
     @include accent-button();
   }
+  .accent-button:hover {
+    border-color: $medium-grey;
+    color: $medium-grey
+  }
   h2 {
     text-align: center;
     margin-bottom: $margin-small;

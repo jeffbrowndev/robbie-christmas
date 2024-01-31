@@ -2,9 +2,9 @@
 @import "./mixins.scss";
 
 .listen-content {
-  padding: $margin-large 0;
+  margin: $margin-large 0;
   @include mQ($desktop-small) {
-    padding: $margin-large-desktop-small 0;
+    margin: $margin-large-desktop-small 0;
   }
   h2 {
     text-align: center;
@@ -23,9 +23,32 @@
       background: $black;
       width: 49.5%;
       margin-bottom: 1%;
-      @include mQ($mobile) {
+      position: relative;
+      @include mQ($tablet) {
         width: 100%;
         margin-bottom: 2vw;
+        .video-overlay {
+          opacity: 0.75 !important;
+          p {
+            padding: 10px 0 !important;
+          }
+        }
+      }
+      .video-overlay {
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        background: $black;
+        opacity: 0;
+        transition: $transition opacity;
+        text-align: center;
+        p {
+          color: white;
+          font-family: $roboto-light;
+          font-size: 18px;
+          padding: $margin-xsmall 0;
+        }
       }
       .video {
         width: 100%;
@@ -33,11 +56,13 @@
         border: none;
       }
       .thumbnail-container {
-        cursor: pointer;
         width: 100%;
         height: 100%;
         position: relative;
+        cursor: pointer;
       }
+    } & .video-container:hover .video-overlay {
+      opacity: 0.75;
     }
   }
   .all-audio {

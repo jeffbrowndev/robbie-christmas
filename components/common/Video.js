@@ -17,9 +17,14 @@ const Video = ({ video, playing, index, setVideoPlaying }) => {
   return (
     <div className={styles['video-container']}>
       {!playing && 
-        <div className={styles['thumbnail-container']}>
-          <Image className={styles['play-button']} alt="thumbnail" src={video.thumbnail} onClick={() => setVideoPlaying(index)} fill />
-        </div>}
+        <>
+          <div className={styles['thumbnail-container']}>
+            <Image className={styles['play-button']} alt="thumbnail" src={video.thumbnail} onClick={() => setVideoPlaying(index)} fill />
+          </div>
+          <div className={styles['video-overlay']}>
+            <p>{video.title}</p>
+          </div>
+        </>}
       {playing && <iframe className={styles['video']} src={embedUrl} allowFullScreen allow="autoplay" />}
     </div>
   )

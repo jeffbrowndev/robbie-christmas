@@ -85,20 +85,24 @@ export const getStaticProps = async () => {
       ],
       videos: [
         {
+          title: "Robbie Christmas - After The Storm [Live]",
           src: "https://www.youtube.com/watch?v=0c1rGBiH_J8&ab_channel=RobbieChristmas",
           thumbnail: "/images/thumbnails/after-the-storm.jpg"
         },
         {
-          src: "https://www.youtube.com/watch?v=b2lK8KqgW6k&ab_channel=RobbieChristmas",
-          thumbnail: "/images/thumbnails/runaway.jpg"
+          title: "Superstar - Robbie Christmas & Company Live [4K]",
+          src: "https://www.youtube.com/watch?v=dUj4-hqkdR4&ab_channel=RobbieChristmas",
+          thumbnail: "/images/thumbnails/superstar.jpg"
         },
         {
+          title: "Taking Too Long - Robbie Christmas & Company Live [4K]",
           src: "https://www.youtube.com/watch?v=Sr6rHW50K-E&ab_channel=RobbieChristmas",
           thumbnail: "/images/thumbnails/taking-too-long.jpg"
         },
         {
-          src: "https://www.youtube.com/watch?v=_omAM4RG13o&ab_channel=RobbieChristmas",
-          thumbnail: "/images/thumbnails/thinkin-bout-you.jpg"
+          title: "Official National Anthem Footage [Sang by Robbie Christmas]",
+          src: "https://www.youtube.com/watch?v=WxEludZzP54&t=67s&ab_channel=RobbieChristmas",
+          thumbnail: "/images/thumbnails/national-anthem.jpg"
         },
       ],
       audio: [

@@ -2,6 +2,7 @@ import styles from "@/styles/clients.module.scss";
 import seahawks from "@/public/images/clients/seahawks.png";
 import bensFund from "@/public/images/clients/bens-fund.png";
 import microsoft from "@/public/images/clients/microsoft.png";
+import amazon from "@/public/images/clients/amazon.png";
 import boeing from "@/public/images/clients/boeing.png";
 import brooks from "@/public/images/clients/brooks.png";
 import chateauSteMichelle from "@/public/images/clients/chateau-ste-michelle.png";
@@ -22,6 +23,7 @@ const Clients = () => {
       <div className={styles['clients']}>
         <Image className={styles['client']} src={seahawks} alt="seahawks" />
         <Image className={styles['client']} src={microsoft} alt="microsoft" />
+        <Image className={styles['client']} src={amazon} alt="amazon" />
         <Image className={styles['client']} src={brooks} alt="brooks" />
         <Image className={styles['client']} src={boeing} alt="boeing" />
         <Image className={styles['client']} src={seattleChildrens} alt="seattle childrens" />
