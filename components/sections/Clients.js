@@ -8,7 +8,6 @@ import brooks from "@/public/images/clients/brooks.png";
 import chateauSteMichelle from "@/public/images/clients/chateau-ste-michelle.png";
 import fremontAnimalHospital from "@/public/images/clients/fremont-animal-hospital.png";
 import gatesFoundation from "@/public/images/clients/gates-foundation.png";
-import johnHowieSteak from "@/public/images/clients/john-howie-steak.png";
 import rosario from "@/public/images/clients/rosario.png";
 import seattleArtMuseum from "@/public/images/clients/seattle-art-museum.png";
 import seattleChildrens from "@/public/images/clients/seattle-childrens.png";
@@ -30,7 +29,6 @@ const Clients = () => {
         <Image className={styles['client']} src={gatesFoundation} alt="gates foundation" />
         <Image className={styles['client']} src={seattleArtMuseum} alt="seattle art museum" />
         <Image className={styles['client']} src={bensFund} alt="bens fund" />
-        <Image className={styles['client']} src={johnHowieSteak} alt="john howie steak" />
         <Image className={styles['client']} src={chateauSteMichelle} alt="chataeu ste michelle" />
         <Image className={styles['client']} src={fremontAnimalHospital} alt="fremont animal hospital" />
         <Image className={styles['client']} src={rosario} alt="rosario" />

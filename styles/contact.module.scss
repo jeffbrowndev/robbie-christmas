@@ -51,6 +51,10 @@
           width: 50%;
           margin-bottom: 20px;
           cursor: pointer;
+          transition: $transition;
+        }
+        .navbar-link:hover {
+          color: $accent;
         }
       }
       .social-media {
