@@ -39,6 +39,13 @@
       flex-direction: column;
       justify-content: space-between;
       gap: $margin-small;
+      .accent-button {
+        @include accent-button();
+      }
+      .accent-button:hover {
+        border-color: $medium-grey;
+        color: $medium-grey
+      }
       .contact-image-mobile {
         display: none;
       }

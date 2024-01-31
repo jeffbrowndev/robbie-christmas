@@ -33,7 +33,11 @@ const Contact = () => {
           <div className={styles['social-media']}>
               <h3>Consulting</h3>
               <p className={styles['p-large']} >Want to talk it through before your big event? Schedule a consultation today to walk through the details.</p>
-              <AccentButton text={"REQUEST CONSULTATION"} />
+              <Link href="https://robbiechristmasmusic241689.hbportal.co/schedule/656a354a96d85800394d945a" target="_blank">
+                <button className={styles['accent-button']}>
+                  SCHEDULE CONSULTATION
+                </button>
+              </Link>
             </div>
             <div className={styles['social-media']}>
               <h3>Follow</h3>
