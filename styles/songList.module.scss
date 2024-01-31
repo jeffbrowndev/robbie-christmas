@@ -23,7 +23,7 @@
     }
   }
   .song-list-container {
-    margin-top: $margin-large;
+    margin-top: $margin-small;
     font-family: $roboto;
     color: $medium-grey;
     .artist-column, .title-column, .genre-column {
@@ -164,8 +164,5 @@
   }
   @include mQ($tablet) {
     padding: $margin-large-desktop-small 0;
-    .song-list-container {
-      margin-top: $margin-large-desktop-small;
-    }
   }
 }

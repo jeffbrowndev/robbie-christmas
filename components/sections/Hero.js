@@ -34,7 +34,7 @@ const Hero = () => {
             </div>
         </div>
         <div className={styles['service-cards']}>
-          <ServiceCard text="LIVE MUSIC" image={liveMusic} dest={'live-music'} />
+          <ServiceCard text="CALENDAR" image={liveMusic} dest={'calendar'} />
           <ServiceCard text="WEDDINGS" image={weddings} dest={'weddings'} />
           <ServiceCard text="CORPORATE EVENTS" image={corporateEvents} dest={'corporate-events'} />
         </div>

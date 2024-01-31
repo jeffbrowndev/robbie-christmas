@@ -8,10 +8,10 @@ import liveMusic from "@/public/images/live-music-main.jpg";
 const LiveMusic = () => {
   return (
     <MaxWidthContainer>
-      <div id='live-music' className={styles['live-music-content']}>
+      <div id='calendar' className={styles['live-music-content']}>
         <Image className={styles['image']} src={liveMusic} />
         <div className={styles['main-content']}>
-          <h2>Live Music</h2>
+          <h2>Calendar</h2>
           <AccentLine />
           <p className='main-text'>
             You can catch Robbie performing regularly at various venues in the Seattle area, 

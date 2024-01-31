@@ -2,6 +2,7 @@
 @import "./mixins.scss";
 
 .service-card {
+  border-radius: 5px;
   width: 33%;
   display: flex;
   justify-content: center;

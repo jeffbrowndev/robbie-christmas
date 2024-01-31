@@ -18,6 +18,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     .video-container {
+      border-radius: 5px;
       overflow: hidden;
       aspect-ratio: 16 / 9;
       background: $black;

@@ -18,6 +18,7 @@
 }
 
 @mixin accent-button {
+  border-radius: 4px;
   padding: 15px 20px;
   background: none;
   border: 1px solid $accent;

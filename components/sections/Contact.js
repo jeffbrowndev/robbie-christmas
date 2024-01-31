@@ -58,10 +58,9 @@ const Contact = () => {
             </div>
             <div className={styles['contact-nav-links']}>
               <p className={styles['navbar-link']} onClick={() => scroll("listen")}>LISTEN</p>
-              <p className={styles['navbar-link']} onClick={() => scroll("weddings")}>WEDDINGS</p>
-              <p className={styles['navbar-link']} onClick={() => scroll("live-music")}>LIVE MUSIC</p>
-              <p className={styles['navbar-link']} onClick={() => scroll("corporate-events")}>CORPORATE EVENTS</p>
               <p className={styles['navbar-link']} onClick={() => scroll("calendar")}>CALENDAR</p>
+              <p className={styles['navbar-link']} onClick={() => scroll("weddings")}>WEDDINGS</p>
+              <p className={styles['navbar-link']} onClick={() => scroll("corporate-events")}>CORPORATE EVENTS</p>
               <p className={styles['navbar-link']} onClick={() => scroll("song-list")}>SONG LIST</p>
             </div>
             <Image className={styles['contact-image-mobile']} src={rxLogo} alt="rx logo" />
