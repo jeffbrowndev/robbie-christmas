@@ -1,11 +1,13 @@
 import { DataContext } from "@/context/DataContext";
 import MaxWidthContainer from "../layouts/MaxWidthContainer";
 import styles from "@/styles/songList.module.scss";
-import { useContext, useState, useRef } from "react";
+import { useContext, useState } from "react";
 import Song from "../common/Song";
-import AccentButton from "../common/AccentButton";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faArrowDownAZ } from "@fortawesome/free-solid-svg-icons";
+import { jsPDF } from "jspdf";
+import autoTable from "jspdf-autotable";
+
 
 const SongList = () => {
   const { songs } = useContext(DataContext);
@@ -29,7 +31,7 @@ const SongList = () => {
     const genreSet = new Set();
 
     for (const s of songs) {
-      genreSet.add(s.genre)
+      genreSet.add(s.genre.trim())
     }
 
     return Array.from(genreSet);
@@ -71,12 +73,26 @@ const SongList = () => {
     return false;
   }
 
+  const downloadPlaylist = () => {
+    const pdf = new jsPDF();
+    const playlist = allSongs.filter(song => song.playlist);
+
+    pdf.text("Robbie Christmas Playlist", 14, 10);
+
+    autoTable(pdf, {
+      head: [["Artist", "Title", "Genre"]],
+      body: playlist.map(song => [song.artist, song.title, song.genre])
+    })
+
+    pdf.save("playlist.pdf");
+  }
+
   return (
     <MaxWidthContainer>
       <div id='song-list' className={styles['song-list']}>
-        {/* <div className={styles['song-list-header']}>
+        <div className={styles['song-list-header']}>
           <h2>Song List</h2>
-          <p className="main-text">Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <p className="main-text">Explore over 600 popular songs or select your favorite songs to create and download a playlist.</p>
         </div>
         <div className={styles['song-list-container']}>
           <div className={styles['controls']}>
@@ -86,45 +102,35 @@ const SongList = () => {
                 <input onChange={(e) => setSearchText(e.currentTarget.value)} className={styles['search-box']} placeholder="Search by artist, song, or genre" />
                 <div className={styles['controls-right']}>
                   <div className={styles['filters']}>
-                    <div>
-                      <input className={styles['checkbox']} type='checkbox' onChange={(e) => setPlaylistOnly(e.currentTarget.checked)} />
-                      <label>Playlist only</label>
-                    </div>
-                    <div>
-                      <input className={styles['checkbox']} type='checkbox' onChange={(e) => setHasAudio(e.currentTarget.checked)} />
-                      <label>Has audio</label>
-                    </div>
+                    <input className={styles['checkbox']} type='checkbox' onChange={(e) => setPlaylistOnly(e.currentTarget.checked)} />
+                    <label>Playlist only</label>
                   </div>
-                  <select onChange={(e) => setGenre(e.currentTarget.value)}>
-                    <option selected>All</option>
-                    {getGenres().map(genre => <option>{genre}</option>)}
-                </select>
-                  <AccentButton text="DOWNLOAD PLAYLIST" />
+                  <button onClick={() => downloadPlaylist()} className={styles['accent-button']}>
+                    DOWNLOAD PLAYLIST (.pdf)
+                  </button>
                 </div>
               </div>
             </div>
           </div>
           <div className={styles['song-list-head']}>
-              <div class={styles['playlist-column']}>
-                <span>Playlist</span>
-              </div>
-              <div class={styles['artist-column']}>
-                <span>Artist</span>
-                <FontAwesomeIcon className={styles['carat']} icon={faArrowDownAZ} onClick={() => sort("artist")} />
-              </div>
-              <div class={styles['title-column']}>
-                <span>Title</span>
-                <FontAwesomeIcon className={styles['carat']} icon={faArrowDownAZ} onClick={() => sort("title")} />
-              </div>
-              <div class={styles['genre-column']}>
-                <span>Genre</span>
-              </div>
-              <div class={styles['audio-column']}>
-                <span>Audio</span>
-              </div>
+            <div class={styles['artist-column']}>
+              <span>Artist</span>
+              <FontAwesomeIcon className={styles['carat']} icon={faArrowDownAZ} onClick={() => sort("artist")} />
             </div>
+            <div class={styles['title-column']}>
+              <span>Title</span>
+              <FontAwesomeIcon className={styles['carat']} icon={faArrowDownAZ} onClick={() => sort("title")} />
+            </div>
+            <div class={styles['genre-column']}>
+              <span>Genre</span>
+              <select onChange={(e) => setGenre(e.currentTarget.value)}>
+                <option selected>All</option>
+                {getGenres().map(genre => <option>{genre}</option>)}
+              </select>
+            </div>
+          </div>
           <div className={styles['scrolling-song-list']}>{displaySongs()}</div>
-        </div> */}
+        </div>
       </div>
     </MaxWidthContainer>
   )
