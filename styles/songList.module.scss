@@ -17,6 +17,10 @@
     h2 {
       margin-bottom: $margin-xsmall;
     }
+    p {
+      max-width: 400px;
+      margin: auto;
+    }
   }
   .song-list-container {
     margin-top: $margin-large;
@@ -37,29 +41,19 @@
       display: flex;
       align-items: center;
       padding: 20px 10px;
-      font-weight: 800;
       background-color: $light-grey;
       color: $accent;
+      font-weight: 800;
       .carat {
-        color: $medium-grey;
-        font-size: 16px;
+        font-weight: 300;
+        color: $dark-grey;
+        font-size: 18px;
         margin-left: 10px;
         cursor: pointer;
       }
-      select {
-        color: $medium-grey;
-        outline: none;
-        border: none;
-        padding: 5px;
-        font-family: $roboto;
-        margin-left: 5px;
-      }
       @include mQ($tablet) {
         font-size: 14px;
-        select {
-          display: none;
-          margin-left: 0 !important;
-        }
+        padding: 10px;
       }
     }
     .scrolling-song-list {
@@ -69,6 +63,9 @@
       @include mQ($tablet) {
         height: 300px;
         font-size: 14px;
+      }
+      .playlist {
+        background: $lighter-grey;
       }
       .song {
         width: 100%;
@@ -86,7 +83,6 @@
       }
     }
     .controls {
-      margin-bottom: $margin-xsmall;
       display: flex;
       justify-content: space-between;
       @include mQ($tablet) {
@@ -97,15 +93,15 @@
         .input-row {
           display: flex;
           align-items: center;
+          margin-bottom: 10px;
           .search-box {
             width: 50%;
-            min-width: 400px;
-            padding: 15px;
+            padding: 10px;
             font-size: 16px;
+            height: 40px;
             border: 1px solid $lighter-grey;
             color: $medium-grey;
             outline: none;
-            margin-right: 25px;
           }
           .search-box::placeholder {
             color: $lighter-grey;
@@ -114,12 +110,27 @@
             width: 70%;
             display: flex;
             justify-content: space-between;
-            align-content: baseline;
+            align-items: center;
             .filters {
-              .checkbox {
-                margin: 5px;
-                cursor: pointer;
+              select {
+                margin-left: 10px;
+                min-width: fit-content;
+                color: $medium-grey;
+                outline: none;
+                border: 1px solid $lighter-grey;
+                padding: 10px;
+                font-family: $roboto;
               }
+            }
+            .download {
+              font-size: 24px;
+              color: $dark-grey;
+              display: block;
+              cursor: pointer;
+              transition: $transition;
+            }
+            .download:hover {
+              color: $accent;
             }
           }
           @include mQ($desktop-small) {
@@ -131,13 +142,14 @@
             display: block;
             .controls-right {
               width: 100%;
-              .filters label {
-                font-size: 14px;
+              .filters select {
+                margin: 0 10px 0 0;
+                font-size: 12px;
               }
             }
             .search-box {
               width: 100%;
-              margin: 0 0 $margin-xsmall 0;
+              margin: 0 0 10px 0;
             }
           }
         }
@@ -148,6 +160,12 @@
         padding: 10px 0!important;
         font-size: 12px !important;
       }
+    }
+  }
+  @include mQ($tablet) {
+    padding: $margin-large-desktop-small 0;
+    .song-list-container {
+      margin-top: $margin-large-desktop-small;
     }
   }
 }
