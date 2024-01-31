@@ -5,8 +5,9 @@
   margin: $margin-large 0;
   text-align: center;
   color: $medium-grey;
-  font-size: 24px;
-  min-height: 365px;
+  font-size: 20px;
+  font-weight: 300;
+  min-height: 265px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -26,7 +27,7 @@
       span {
         color: $accent;
         font-family: $roboto-italic-bold;
-        font-size: 48px;
+        font-size: 36px;
         line-height: 0;
       }
       @include mQ($desktop-small) {
@@ -39,6 +40,7 @@
       }
     }
     h4 {
+      font-size: 24px;
       font-family: $hoefler;
       margin: $margin-small 0;
     }
@@ -55,11 +57,11 @@
     display: flex;
     justify-content: center;
     .dot {
-      width: 20px;
-      height: 20px;
-      border-radius: 20px;
+      width: 15px;
+      height: 15px;
+      border-radius: 15px;
       background: $light-grey;
-      margin: 0 5px;
+      margin: 0 3px;
       cursor: pointer;
     }
     .active {
