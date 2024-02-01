@@ -3,6 +3,19 @@
 
 .song-list {
   padding: $margin-large 0;
+  width: 100%;
+  #download-desktop {
+    @include mQ($tablet-small) {
+      display: none;
+    }
+  }
+  #download-mobile {
+    display: none;
+    margin: 10px auto;
+    @include mQ($tablet-small) {
+      display: block;
+    }
+  }
   .accent-button {
     @include accent-button();
     margin: 0;
@@ -65,7 +78,7 @@
         font-size: 14px;
       }
       .playlist {
-        background: $lighter-grey;
+        background: $light-grey;
       }
       .song {
         width: 100%;
@@ -95,7 +108,7 @@
           align-items: center;
           margin-bottom: 10px;
           .search-box {
-            width: 50%;
+            width: 40%;
             padding: 10px;
             font-size: 16px;
             height: 40px;
@@ -114,7 +127,7 @@
             .filters {
               select {
                 margin-left: 10px;
-                min-width: fit-content;
+                width: 175px;
                 color: $medium-grey;
                 outline: none;
                 border: 1px solid $lighter-grey;
@@ -122,34 +135,39 @@
                 font-family: $roboto;
               }
             }
-            .download {
-              font-size: 24px;
-              color: $dark-grey;
-              display: block;
-              cursor: pointer;
-              transition: $transition;
-            }
-            .download:hover {
-              color: $accent;
-            }
           }
           @include mQ($desktop-small) {
             .accent-button {
               margin: 0;
             }
           }
-          @include mQ($tablet) {
+          @include mQ(1025px) {
             display: block;
             .controls-right {
               width: 100%;
-              .filters select {
-                margin: 0 10px 0 0;
-                font-size: 12px;
+              .filters {
+                width: 100%;
+                select {
+                  width: fit-content;
+                  margin: 0 10px 0 0;
+                }
               }
             }
             .search-box {
               width: 100%;
               margin: 0 0 10px 0;
+            }
+          }
+          @include mQ($tablet-small) {
+            .controls-right {
+              .filters {
+                display: flex;
+                justify-content: space-between;
+                select {
+                  margin: 0;
+                  width: 49%;
+                }
+              }
             }
           }
         }

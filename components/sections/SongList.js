@@ -99,16 +99,18 @@ const SongList = () => {
                 <input onChange={(e) => setSearchText(e.currentTarget.value)} className={styles['search-box']} placeholder="Search by artist, song, or genre" />
                 <div className={styles['controls-right']}>
                   <div className={styles['filters']}>
-                    <select defaultValue='All genres' onChange={(e) => setGenre(e.currentTarget.value)}>
+                    <select id={styles['genre-select']} defaultValue='All genres' onChange={(e) => setGenre(e.currentTarget.value)}>
                       <option value='All genres'>All genres</option>
                       {getGenres().map(genre => <option>{genre}</option>)}
                     </select>
-                    <select defaultValue='All songs' onChange={(e) => handlePlaylistOnly(e.currentTarget.value)}>
+                    <select id={styles['song-select']} defaultValue='All songs' onChange={(e) => handlePlaylistOnly(e.currentTarget.value)}>
                       <option value='All songs'>All songs</option>
                       <option value='Playlist'>Playlist</option>
                     </select>
                   </div>
-                  <FontAwesomeIcon title="Download Playlist (.pdf)" className={styles['download']} icon={faFileArrowDown} onClick={() => downloadPlaylist()} />
+                  <button id={styles['download-desktop']} className={styles['accent-button']} onClick={() => downloadPlaylist()}>
+                    DOWNLOAD PLAYLIST (.pdf)
+                  </button>
                 </div>
               </div>
             </div>
@@ -128,6 +130,9 @@ const SongList = () => {
           </div>
           <div className={styles['scrolling-song-list']}>{displaySongs()}</div>
         </div>
+        <button id={styles['download-mobile']} className={styles['accent-button']} onClick={() => downloadPlaylist()}>
+          DOWNLOAD PLAYLIST (.pdf)
+        </button>
       </div>
     </MaxWidthContainer>
   )
