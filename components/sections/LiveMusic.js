@@ -16,10 +16,10 @@ const LiveMusic = () => {
           <p className='main-text'>
             You can catch Robbie performing regularly at various venues in the Seattle area, 
             often with no cover charge. During these performances, Robbie showcases his extensive 
-            repertoire of over 600 favorite songs, occasionally including original compositions. 
+            repertoire of over 600 favorite songs, including original compositions. 
             It's an excellent opportunity to gauge how Robbie's music can seamlessly complement your event. 
             If you're planning to attend one of his performances, feel free to send us an email in advance, 
-            and Robbie will be delighted to greet you personally.
+            and Robbie will love to say “hello” in person
           </p>
           <AccentButton text={"LISTEN"} dest='listen' />
         </div>

@@ -15,11 +15,12 @@ const CorporateEvents = () => {
           <h2>Corporate Events</h2>
           <AccentLine />
           <p className='main-text'>
-            Over 15 years of experience performing has established Robbie Christmas 
-            as a leading performer in the Pacific Northwest; earning him an ardent following; 
-            cherished for his compelling voice and remarkable acoustic guitar accompaniment. 
-            Enhance your corporate event with Robbie’s personalized touch, selecting from his extensive 
-            600+ song collection to create a memorable, tailored soundtrack that your guests will remember.
+            Robbie Christmas is a seasoned acoustic singer-songwriter known for his pure voice, 
+            masterful guitar playing and vast repertoire of popular music. Robbie has accrued 15+ 
+            years of full-time music industry experience with an ardent following in the Pacific Northwest and beyond.
+            Organizations of all sizes have enlisted Robbie to elevate their event with a musical backdrop curated 
+            from his vast catalog of 600+ songs. Robbie’s client roster includes: Microsoft, Amazon.com, Boeing, 
+            Seattle Seahawks, and many more. 
           </p>
           <AccentButton text={"LISTEN"} dest='listen' />
           <AccentButton text={"VIEW SONG LIST"} dest='song-list' />

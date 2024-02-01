@@ -25,9 +25,9 @@ const Hero = () => {
               <h3>Tailored To Make Any Moment The Perfect Moment.</h3>
               <AccentLine />
               <p>
-                Setting the tone in the Pacific Northwest with 15+ years of experience 
-                and offering a catalog of over 600 popular songs tailored for each unique 
-                event and celebration.
+                With over 15 years of experience and a catalog of over 600 popular songs, 
+                Robbie sets the tone in the Pacific Northwest with a unique, tailored experience 
+                for each event and celebration.
               </p>
               <AccentButton text="LISTEN" dest='listen' />
               <AccentButton text="MAKE AN INQUIRY" dest='contact' />
