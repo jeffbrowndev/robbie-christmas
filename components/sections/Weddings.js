@@ -35,27 +35,33 @@ const weddingServices = [
 
 const Weddings = () => {
   return (
-    <MaxWidthContainer>
-      <div id="weddings" className={styles['weddings-content']}>
-        <div className={styles['main-content']}>
-          <h2>Weddings</h2>
-          <AccentLine />
-          <p className='main-text'>
-            Robbie Christmas is a seasoned acoustic singer-songwriter known for his pure voice, 
-            masterful guitar playing and vast repertoire of popular music. Robbie has accrued 15+ 
-            years of full-time music industry experience with an ardent following in the Pacific 
-            Northwest and beyond. Hundreds of couples have selected Robbie to elevate their wedding 
-            events with the perfect soundtrack curated from his catalog of 600+ songs.
-          </p>
-          <AccentButton text={"LISTEN"} dest='listen' />
-          <AccentButton text={"VIEW SONG LIST"} dest='song-list' />
-        </div>
-        <Image className={styles['image']} src={weddingsMain} />
+    <>
+      <div id={styles['weddings-background']}>
+        <MaxWidthContainer>
+          <div id="weddings" className={styles['weddings-content']}>
+            <div className={styles['main-content']}>
+              <h2>Weddings</h2>
+              <AccentLine />
+              <p className='main-text'>
+                Robbie Christmas is a seasoned acoustic singer-songwriter known for his pure voice, 
+                masterful guitar playing and vast repertoire of popular music. Robbie has accrued 15+ 
+                years of full-time music industry experience with an ardent following in the Pacific 
+                Northwest and beyond. Hundreds of couples have selected Robbie to elevate their wedding 
+                events with the perfect soundtrack curated from his catalog of 600+ songs.
+              </p>
+              <AccentButton text={"LISTEN"} dest='listen' />
+              <AccentButton text={"VIEW SONG LIST"} dest='song-list' />
+            </div>
+            <Image className={styles['image']} src={weddingsMain} />
+          </div>
+        </MaxWidthContainer>
       </div>
-      <div className={styles['wedding-services']}>
+      <MaxWidthContainer>
+        <div className={styles['wedding-services']}>
           {weddingServices.map(service => <WeddingService key={service.title} title={service.title} description={service.description} />)}
-      </div>
-    </MaxWidthContainer>
+        </div>
+      </MaxWidthContainer>
+    </>
   );
 }
 

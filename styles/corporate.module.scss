@@ -4,3 +4,11 @@
 .corporate-content {
   @include service-section-content();
 }
+
+#corporate-background {
+  background: url("../public/images/hero-background.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}

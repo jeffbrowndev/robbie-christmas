@@ -2,13 +2,14 @@
 @import "./mixins.scss";
 
 .clients-container {
+  margin: $margin-large 0;
   .clients {
     display: flex;
     justify-content: center;
     align-items: flex-end;
     flex-wrap: wrap;
     gap: $margin-xsmall;
-    margin-bottom: $margin-large;
+    
     .client {
       width: 150px;
       height: auto;
@@ -21,5 +22,8 @@
   h3 {
     text-align: center;
     margin-bottom: $margin-small;
+  }
+  @include mQ($tablet) {
+    margin: $margin-large-desktop-small 0;
   }
 }

@@ -1,6 +1,14 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
+#weddings-background {
+  background: url("../public/images/hero-background.png");
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
 .weddings-content {
   @include service-section-content();
 }
@@ -10,7 +18,7 @@
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  margin-bottom: $margin-large;
+  margin: $margin-large 0;
   .wedding-service {
     width: 30%;
     margin-bottom: $margin-small;
@@ -33,6 +41,6 @@
     }
   }
   @include mQ($tablet) {
-    margin-bottom: calc($margin-large-desktop-small - $margin-small);
+    margin: calc($margin-large-desktop-small - $margin-small) 0;
   }
 }

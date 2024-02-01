@@ -42,7 +42,11 @@
         .email {
           font-weight: 800;
           color: $dark-grey;
-          margin-right: 10px;      
+          margin-right: 10px;
+          transition: $transition;     
+        }
+        .email:hover {
+          color: $accent;
         }
       }
     }
