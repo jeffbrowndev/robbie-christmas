@@ -4,7 +4,6 @@ import Image from "next/image";
 import AccentLine from "../common/AccentLine";
 import AccentButton from "../common/AccentButton";
 import liveMusic from "@/public/images/live-music-main.jpg";
-import Calendar from "./Calendar";
 
 const LiveMusic = () => {
   return (
@@ -27,7 +26,6 @@ const LiveMusic = () => {
           </div>
         </div>
       </MaxWidthContainer>
-      {/* <Calendar /> */}
     </div>
   );
 }

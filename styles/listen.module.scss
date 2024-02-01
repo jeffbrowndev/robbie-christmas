@@ -3,6 +3,10 @@
 
 .listen-content {
   margin: $margin-large 0;
+  scroll-margin-top: $margin-large;
+  @include mQ($tablet) {
+    scroll-margin-top: $margin-large-desktop-small;
+  }
   @include mQ($desktop-small) {
     margin: $margin-large-desktop-small 0;
   }

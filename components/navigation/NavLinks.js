@@ -5,7 +5,7 @@ const NavLinks = () => {
   const scroll = (dest) => {
     const target = document.getElementById(dest);
 
-    target.scrollIntoView();
+    target.scrollIntoView({block: 'start', behavior: "smooth"});
   }
 
   return (

@@ -11,6 +11,10 @@
 
 .weddings-content {
   @include service-section-content();
+  scroll-margin-top: 75px;
+  @include mQ($tablet) {
+    scroll-margin-top: 60px;
+  }
 }
 
 .wedding-services {
