@@ -2,9 +2,9 @@
 @import "./mixins.scss";
 
 #weddings-background {
-  background: url("../public/images/hero-background.png");
+  background: url("../public/images/weddings-background.png");
   background-size: cover;
-  background-position: top;
+  background-position: center;
   background-repeat: no-repeat;
   background-attachment: fixed;
 }
