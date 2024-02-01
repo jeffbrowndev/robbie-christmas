@@ -32,8 +32,6 @@ const getEvents = async () => {
   const res = await fetch(url);
   const data = await res.json();
 
-  console.log(data.items);
-
   return data.items.map(e => {
     return {
       summary: e.summary,
