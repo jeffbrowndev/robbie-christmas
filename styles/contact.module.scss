@@ -7,6 +7,14 @@
   .contact-content {
     display: flex;
     font-family: $roboto-light;
+    .icon {
+      cursor: pointer;
+      margin-right: 10px;
+      color: $dark-grey;
+      transition: $transition;
+    } & .icon:hover {
+      color: $accent !important;
+    }
     h3 {
       margin-bottom: 20px;
       color: $dark-grey;
@@ -27,10 +35,15 @@
         width: 100%;
         height: auto;
       }
-      .e-mail {
-        font-size: 24px;
-        font-weight: 800;
-        color: $dark-grey;
+      .email-container {
+        display: flex;
+        align-items: center;
+        font-size: 24px; 
+        .email {
+          font-weight: 800;
+          color: $dark-grey;
+          margin-right: 10px;      
+        }
       }
     }
     .contact-content-right {
@@ -68,13 +81,6 @@
       .social-media {
         .icons {
           font-size: 30px;
-          .icon {
-            margin-right: 10px;
-            color: $dark-grey;
-            transition: $transition;
-          } & .icon:hover {
-            color: $accent !important;
-          }
         }
       }
     }
@@ -85,7 +91,7 @@
       .p-large {
         font-size: 16px;
       }
-      .e-mail {
+      .email-container {
         font-size: 18px !important;
       }
       .contact-content-left {
@@ -111,6 +117,9 @@
         .contact-image-desktop {
           display: none;
         }
+      }
+      .email-container {
+        justify-content: center;
       }
       .contact-content-right {
         .contact-image-mobile {
