@@ -4,6 +4,10 @@
 .contact-container {
   background: $light-grey;
   padding: $margin-large 0;
+  scroll-margin-top: 75px;
+  @include mQ($tablet) {
+    scroll-margin-top: 60px;
+  }
   .contact-content {
     display: flex;
     font-family: $roboto-light;

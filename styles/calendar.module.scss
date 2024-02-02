@@ -2,7 +2,7 @@
 @import "./mixins.scss";
 
 .calendar {
-  padding-top: $margin-large;
+  padding-top: calc($margin-large - 45px);
   margin-bottom: $margin-large;
   .accent-button {
     @include accent-button();
