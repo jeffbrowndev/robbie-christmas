@@ -20,7 +20,7 @@ const Calendar = () => {
     <MaxWidthContainer>
       <div className={styles['calendar']} id="calendar">
         <div className={styles['events']}>
-          {visibleEvents.map(data => <Event data={data} />)}
+          {visibleEvents.map((data, index) => <Event data={data} key={index} />)}
         </div>
         <div className={styles['button-container']}>
         <button onClick={() => showMore()} className={styles['accent-button']}>

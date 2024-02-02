@@ -101,7 +101,7 @@ const SongList = () => {
                   <div className={styles['filters']}>
                     <select id={styles['genre-select']} defaultValue='All genres' onChange={(e) => setGenre(e.currentTarget.value)}>
                       <option value='All genres'>All genres</option>
-                      {getGenres().map(genre => <option>{genre}</option>)}
+                      {getGenres().map(genre => <option key={genre}>{genre}</option>)}
                     </select>
                     <select id={styles['song-select']} defaultValue='All songs' onChange={(e) => handlePlaylistOnly(e.currentTarget.value)}>
                       <option value='All songs'>All songs</option>
@@ -116,15 +116,15 @@ const SongList = () => {
             </div>
           </div>
           <div className={styles['song-list-head']}>
-            <div class={styles['artist-column']}>
+            <div className={styles['artist-column']}>
               <span>Artist</span>
               <FontAwesomeIcon className={styles['carat']} icon={faArrowDownAZ} onClick={() => sort("artist")} />
             </div>
-            <div class={styles['title-column']}>
+            <div className={styles['title-column']}>
               <span>Title</span>
               <FontAwesomeIcon className={styles['carat']} icon={faArrowDownAZ} onClick={() => sort("title")} />
             </div>
-            <div class={styles['genre-column']}>
+            <div className={styles['genre-column']}>
               <span>Genre</span>
             </div>
           </div>
