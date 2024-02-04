@@ -159,7 +159,7 @@ export const getStaticProps = async () => {
         {
           title: "Thinkin Bout You",
           artist: "Frank Ocean",
-          src: "/audio/thinkin-bout-you.wav"
+          src: "/audio/thinkin-bout-you.mp3"
         },
         {
           title: "Windows Are Rolled Down",
