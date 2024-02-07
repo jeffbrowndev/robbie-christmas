@@ -7,14 +7,14 @@ import MaxWidthContainer from "../layouts/MaxWidthContainer";
 const Calendar = () => {
   const { events } = useContext(DataContext);
   const [visibleEvents, setVisibleEvents] = useState(null);
-  const eventsRendered = useRef({hasRendered: false});
+  const eventsRendered = useRef({hasRendered: false, showMoreWasClicked: false});
 
   useEffect(() => {
     setVisibleEvents(events.slice(0, 5));
   }, [])
 
   useEffect(() => {
-    if (eventsRendered.current['hasRendered'] && visibleEvents) {
+    if (eventsRendered.current['hasRendered'] && eventsRendered.current['showMoreWasClicked']) {
       const allEvents = document.querySelectorAll(".event");
 
       const fifthToLast = allEvents.length - 5;
@@ -28,6 +28,10 @@ const Calendar = () => {
 
   const showMore = () => {
     setVisibleEvents(events.slice(0, visibleEvents.length + 5));
+
+    if (!eventsRendered.current['showMoreWasClicked']) {
+      eventsRendered.current['showMoreWasClicked'] = true;
+    }
   }
 
   const showLess = () => {
