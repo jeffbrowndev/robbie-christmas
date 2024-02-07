@@ -21,6 +21,10 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
+      .event-link {
+        font-family: $roboto;
+        color: $black;
+      }
       .event-content-left {
         width: 800px;
         h3 {
@@ -30,6 +34,16 @@
         #mobile-time {
           display: none;
         }
+        #mobile-event-link {
+          font-size: 14px;
+          display: none;
+        }
+      }
+      .event-content-right {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        gap: 15px;
       }
       .event-info {
         font-family: $roboto;
@@ -56,7 +70,7 @@
         line-height: 1.5;
         padding: 10px 0;
         .event-content-left {
-          margin: 0 0 0 10px;
+          margin: 0 0 0 15px;
         }
         h3 {
           font-size: 18px;
@@ -66,16 +80,22 @@
           font-size: 14px;
         }
         #mobile-time {
-          display: block !important;
+          display: inline-block !important;
         }
         #desktop-time {
+          display: none;
+        }
+        #mobile-event-link {
+          display: block !important;
+        }
+        #desktop-event-link {
           display: none;
         }
       }
       @include mQ($mobile) {
         .logo {
-          width: 75px;
-          height: 75px;
+          width: 60px;
+          height: 60px;
         }
       }
     }

@@ -38,6 +38,7 @@ const getEvents = async () => {
       date: DateTime.fromISO(e.start.dateTime, {zone: "PST"}).toFormat('DDDD'),
       start: DateTime.fromISO(e.start.dateTime, {zone: "PST"}).toFormat('t'),
       end: DateTime.fromISO(e.end.dateTime, {zone: "PST"}).toFormat('t'),
+      description: e.description || null,
       logo: getEventLogo(e.summary)
     };
   });
