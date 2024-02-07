@@ -15,7 +15,7 @@ export const Event = ({ data }) => {
   }, []);
 
   return (
-    <div className={styles['event']}>
+    <div className={`${styles['event']} event`}>
       <Image className={styles['logo']} src={data.logo} alt={data.summary} width={150} height={150} />
       <div className={styles['event-content-left']}>
         <h3>{data.summary}</h3>
