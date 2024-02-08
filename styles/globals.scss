@@ -44,6 +44,7 @@ h4 {
   line-height: 1.5;
 }
 
+// disable fixed backgrounds on iOS
 @supports (-webkit-touch-callout: none) {
   .fixed-background {
     background-attachment: scroll !important;

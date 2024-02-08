@@ -9,7 +9,7 @@ import Clients from "./Clients";
 const CorporateEvents = () => {
   return (
     <>
-      <div id={styles['corporate-background']}>
+      <div className="fixed-background" id={styles['corporate-background']}>
         <MaxWidthContainer>
           <div id="corporate-events" className={styles['corporate-content']}>
             <Image className={styles['image']} src={corporateMain} />

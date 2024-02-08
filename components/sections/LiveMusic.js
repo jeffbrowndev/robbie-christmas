@@ -7,7 +7,7 @@ import liveMusic from "@/public/images/live-music-main.jpg";
 
 const LiveMusic = () => {
   return (
-    <div id={styles['live-music-background']}>
+    <div className="fixed-background" id={styles['live-music-background']}>
       <MaxWidthContainer>
         <div id='calendar' className={styles['live-music-content']}>
           <Image className={styles['image']} src={liveMusic} />

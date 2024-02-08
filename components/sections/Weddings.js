@@ -36,7 +36,7 @@ const weddingServices = [
 const Weddings = () => {
   return (
     <>
-      <div id={styles['weddings-background']}>
+      <div className="fixed-background" id={styles['weddings-background']}>
         <MaxWidthContainer>
           <div id="weddings" className={styles['weddings-content']}>
             <div className={styles['main-content']}>
