@@ -13,7 +13,7 @@ import corporateEvents from "@/public/images/corporate-events.jpg";
 
 const Hero = () => {
   return (
-    <div className={styles['hero']}>
+    <div className={`${styles['hero']} fixed-background`}>
       <MaxWidthContainer>
         <div className={styles["hero-content"]}>
           <Image

@@ -43,3 +43,15 @@ h4 {
   color: $medium-grey;
   line-height: 1.5;
 }
+
+@supports (-webkit-touch-callout: none) {
+  .fixed-background {
+    background-attachment: scroll !important;
+  }
+}
+
+@supports not (-webkit-touch-callout: none) {
+  .fixed-background {
+    background-attachment: fixed !important;
+  }
+}

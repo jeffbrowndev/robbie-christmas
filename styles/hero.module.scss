@@ -7,7 +7,6 @@
   background-size: cover;
   background-position: top;
   background-repeat: no-repeat;
-  background-attachment: fixed;
   display: flex;
   padding-top: $margin-large;
   .hero-content {
@@ -57,9 +56,7 @@
       }
     }
   }
-  @include mQ($desktop-small) {
-    padding-top: calc($margin-large-desktop-small + 60px);
-  }
+  
   .service-cards {
     margin-top: $margin-large;
     display: flex;
@@ -71,5 +68,8 @@
     @include mQ($mobile) {
       flex-direction: column;
     }
+  }
+  @include mQ($desktop-small) {
+    padding-top: calc($margin-large-desktop-small + 60px);
   }
 }
