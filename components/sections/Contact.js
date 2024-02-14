@@ -9,7 +9,7 @@ import { faFacebook, faSpotify, faInstagram, faYoutube } from "@fortawesome/free
 import Link from "next/link";
 
 const Contact = () => {
-  const email = "robbiechristmasmusic@gmail.com";
+  const email = "contact@robbiechristmas.com";
 
   const scroll = (dest) => {
     const target = document.getElementById(dest);
