@@ -10,6 +10,7 @@ import ServiceCard from '../common/ServiceCard';
 import liveMusic from "@/public/images/live-music.jpg";
 import weddings from "@/public/images/weddings.jpg";
 import corporateEvents from "@/public/images/corporate-events.jpg";
+import originalMusic from "@/public/images/original-music.jpg";
 
 const Hero = () => {
   return (
@@ -37,6 +38,7 @@ const Hero = () => {
           <ServiceCard text="CALENDAR" image={liveMusic} dest={'calendar'} />
           <ServiceCard text="WEDDINGS" image={weddings} dest={'weddings'} />
           <ServiceCard text="CORPORATE EVENTS" image={corporateEvents} dest={'corporate-events'} />
+          <ServiceCard text="ORIGINAL MUSIC" image={originalMusic} dest={'original-music'} />
         </div>
       </MaxWidthContainer>
     </div>

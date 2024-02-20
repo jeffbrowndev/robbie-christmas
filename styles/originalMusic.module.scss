@@ -1,0 +1,31 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.original-music-content {
+  @include service-section-content();
+  scroll-margin-top: 75px;
+  h2 {
+    color: $light-grey;
+  }
+  p {
+    color: $light-grey;
+  }
+  .accent-button {
+    @include accent-button();
+  } & .accent-button:hover {
+    color: $light-grey;
+    border-color: $light-grey;
+  }
+  @include mQ($tablet) {
+    scroll-margin-top: 60px;
+  }
+}
+
+#original-music-background {
+  background: url("../public/images/original-music-background.jpg");
+  // background: $darker-grey;
+  background-size: cover;
+  background-position: top;
+  background-repeat: no-repeat;
+  padding-bottom: $margin-small;
+}

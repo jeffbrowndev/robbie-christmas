@@ -9,7 +9,7 @@ import { faFacebook, faSpotify, faInstagram, faYoutube } from "@fortawesome/free
 import Link from "next/link";
 
 const Contact = () => {
-  const email = "robbiechristmasmusic@gmail.com";
+  const email = "contact@robbiechristmas.com";
 
   const scroll = (dest) => {
     const target = document.getElementById(dest);
@@ -73,6 +73,7 @@ const Contact = () => {
               <p className={styles['navbar-link']} onClick={() => scroll("calendar")}>CALENDAR</p>
               <p className={styles['navbar-link']} onClick={() => scroll("weddings")}>WEDDINGS</p>
               <p className={styles['navbar-link']} onClick={() => scroll("corporate-events")}>CORPORATE EVENTS</p>
+              <p className={styles['navbar-link']} onClick={() => scroll("original-music")}>ORIGINAL MUSIC</p>
               <p className={styles['navbar-link']} onClick={() => scroll("song-list")}>SONG LIST</p>
             </div>
             <Image className={styles['contact-image-mobile']} src={rxLogo} alt="rx logo" />

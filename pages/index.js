@@ -12,6 +12,7 @@ import Calendar from "@/components/sections/Calendar";
 import { DateTime } from "luxon";
 import SongList from "@/components/sections/SongList";
 import Contact from "@/components/sections/Contact";
+import OriginalMusic from "@/components/sections/OriginalMusic";
 
 const getEventLogo = (summary) => {
   if (summary.includes('Willows Lodge'))
@@ -57,7 +58,6 @@ const getSongs = async () => {
       artist: s[0],
       title: s[1],
       genre: s[2],
-      audio: s[3] || null,
       playlist: false
     };
   });
@@ -169,7 +169,99 @@ export const getStaticProps = async () => {
         },
       ],
       events: await getEvents(),
-      songs: await getSongs()
+      songs: await getSongs(),
+      albums: [
+        {
+          title: "Epilogue",
+          year: "2020",
+          type: "Album",
+          songCount: "10",
+          imageSrc: "/images/albums/epilogue.jpg",
+          spotifyUrl: "https://open.spotify.com/album/3KIAzBtU9hBfc7Br3k1iae?si=luzrEqLlR9eWwu2agL-vow",
+          appleMusicUrl: "https://music.apple.com/us/album/epilogue/1520346855",
+        },
+        {
+          title: "Reckless",
+          year: "2020",
+          type: "Single",
+          songCount: "1",
+          imageSrc: "/images/albums/reckless.jpg",
+          spotifyUrl: "https://open.spotify.com/album/6agBtAbscC0fWeRqb1EEg9?si=pbw8WqgJThiZHKw-wFB3TA",
+          appleMusicUrl: "https://music.apple.com/us/album/reckless-feat-linzy-collins-single/1514718825",
+        },
+        {
+          title: "Somewhere in the Quiet",
+          year: "2019",
+          type: "Single",
+          songCount: "1",
+          imageSrc: "/images/albums/somewhere-in-the-quiet.jpg",
+          spotifyUrl: "https://open.spotify.com/album/1iubTLmMSBDU62NybufedI?si=uhaCNDPvThKOpl8GLmRzAA",
+          appleMusicUrl: "https://music.apple.com/us/album/somewhere-in-the-quiet-single/1486032229",
+        },
+        {
+          title: "Fade.",
+          year: "2019",
+          type: "Single",
+          songCount: "1",
+          imageSrc: "/images/albums/fade.jpg",
+          spotifyUrl: "https://open.spotify.com/album/4fLVqXwkmdVg9MvQghLs09?si=3cbtSMMBQ1eZaZq-M8mXlg",
+          appleMusicUrl: "https://music.apple.com/us/album/fade-single/1481019676",
+        },
+        {
+          title: "Synthesize",
+          year: "2019",
+          type: "Single",
+          songCount: "1",
+          imageSrc: "/images/albums/synthesize.jpg",
+          spotifyUrl: "https://open.spotify.com/album/109chd17oG02hWvl1EVIvc?si=BR5qRcBTQbGT2oiMei6APg",
+          appleMusicUrl: "https://music.apple.com/us/album/synthesize-single/1473753474",
+        },
+        {
+          title: "Who I Was",
+          year: "2019",
+          type: "Single",
+          songCount: "1",
+          imageSrc: "/images/albums/who-i-was.jpg",
+          spotifyUrl: "https://open.spotify.com/album/3gHShRgYWzgdWKjJuYw82m?si=TC3NYcteQqqzwRAOEO3VKw",
+          appleMusicUrl: "https://music.apple.com/us/album/who-i-was-single/1462963378",
+        },
+        {
+          title: "Over The Moon",
+          year: "2019",
+          type: "Single",
+          songCount: "1",
+          imageSrc: "/images/albums/over-the-moon.jpg",
+          spotifyUrl: "https://open.spotify.com/album/56X70bxZp76BBl83i3KAGT?si=yo2JFb_WRo25r67myo0sIg",
+          appleMusicUrl: "https://music.apple.com/us/album/over-the-moon-single/1453649793",
+        },
+        {
+          title: "Misery",
+          year: "2019",
+          type: "Single",
+          songCount: "1",
+          imageSrc: "/images/albums/misery.jpg",
+          spotifyUrl: "https://open.spotify.com/album/5KVB2eGuW8bxlNfEsyfQ8P?si=b9veRNwPQEyo9paMe9RfSw",
+          appleMusicUrl: "https://music.apple.com/us/album/misery-single/1448905728",
+        },
+        {
+          title: "When I Finally Get Myself Together",
+          year: "2017",
+          type: "EP",
+          songCount: "6",
+          imageSrc: "/images/albums/when-i-finally-get-myself-together.jpg",
+          spotifyUrl: "https://open.spotify.com/album/5YRifQFYCdAYbRlASuQ3Fg?si=AhJ3hEpKStSExpksQssjmw",
+          appleMusicUrl: "https://music.apple.com/us/album/when-i-finally-get-myself-together/1447189536",
+        },
+        {
+          title: "Few and Far Between",
+          year: "2015",
+          type: "EP",
+          songCount: "5",
+          imageSrc: "/images/albums/few-and-far-between.jpg",
+          spotifyUrl: "https://open.spotify.com/album/2E1fo27Cpo8nbs1lZfCr2k?si=Eo12dDkZQhyXBhKgfIEGzQ",
+          appleMusicUrl: "https://music.apple.com/us/album/far-and-few-between-ep/1446685544",
+        },
+      ]
     }
   }
 }
@@ -191,7 +283,7 @@ export default function App(props) {
         <Calendar />
         <Weddings />
         <CorporateEvents />
-        <LineSeparator />
+        <OriginalMusic />
         <SongList />
         <Contact />
       </DataContext.Provider>

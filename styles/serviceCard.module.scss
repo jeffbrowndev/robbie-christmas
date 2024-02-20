@@ -2,8 +2,7 @@
 @import "./mixins.scss";
 
 .service-card {
-  border-radius: 5px;
-  width: 33%;
+  width: 25%;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -14,15 +13,16 @@
   p {
     font-family: $roboto-light;
     letter-spacing: 3px;
-    font-size: 28px;
+    font-size: 24px;
     color: $light-grey;
     text-align: center;
-    padding: 25px;
+    padding: 10px;
     z-index: 1;
     font-weight: 800;
-    @include mQ($desktop-small) {
-      font-size: 24px;
-    }
+  }
+  @include mQ($tablet) {
+    width: 49%;
+    margin-bottom: 1vw;
   }
   @include mQ($mobile) {
     width: 100%;
@@ -43,6 +43,6 @@
   display: block;
   padding-bottom: 100%;
   @include mQ($mobile) {
-    padding-bottom: 60%;
+    padding-bottom: 66.6%;
   }
 }

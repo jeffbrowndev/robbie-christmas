@@ -1,0 +1,35 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.album-card {
+  background: white;
+  margin: 0 5px;
+  .album-cover {
+    width: 100%;
+    height: auto;
+  }
+  .album-card-content {
+    text-align: center;
+    padding: 10px 0;
+    h4 {
+      color: $accent;
+    }
+    p {
+      font-size: 14px;
+      font-family: $roboto;
+      padding: 10px 0 20px 0;
+    }
+    .listen-icons {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      .icon {
+        color: $dark-grey;
+        font-size: 28px;
+        transition: $transition;
+      } & .icon:hover {
+        color: $accent;
+      }
+    }
+  }
+}

@@ -19,6 +19,7 @@ const NavLinksMobile = ({ active, setActive }) => {
           <p className={styles['navbar-link']} onClick={() => scroll('weddings')}>WEDDINGS</p>
           <p className={styles['navbar-link']} onClick={() => scroll('corporate-events')}>CORPORATE EVENTS</p>
           <p className={styles['navbar-link']} onClick={() => scroll('song-list')}>SONG LIST</p>
+          <p className={styles['navbar-link']} onClick={() => scroll('original-music')}>ORIGINAL MUSIC</p>
           <p className={styles['navbar-link']} onClick={() => scroll('contact')}>CONTACT</p>
         </div> }
     </>
