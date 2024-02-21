@@ -1,6 +1,71 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
+.popup-overlay {
+  width: 100vw;
+  height: 100vh;
+  z-index: 9999;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.5);
+  .popup {
+    border-radius: 5px;
+    position: fixed;
+    width: 500px;
+    height: 250px;
+    background: white;
+    top: calc(50% - 100px);
+    left: calc(50% - 250px);
+    z-index: 1000;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    button {
+      @include accent-button-no-margin();
+    } & button:hover {
+      color: $dark-grey;
+      border-color: $dark-grey;
+    }
+    input {
+      margin-bottom: 15px;
+      width: 75%;
+      padding: 10px;
+      font-size: 16px;
+      height: 40px;
+      border: 1px solid $lighter-grey;
+      color: $medium-grey;
+      outline: none;
+    }
+    input::placeholder {
+      color: $lighter-grey;
+    }
+    p {
+      font-family: $roboto-light;
+      color: $dark-grey;
+    }
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 15px;
+      cursor: pointer;
+      transition: $transition;
+    } & .close:hover {
+      color: $accent;
+    }
+    @include mQ(650px) {
+      width: 96vw;
+      left: 2vw;
+      input {
+        width: 90%;
+      }
+    }
+  }
+}
+
 .song-list {
   padding: $margin-large 0;
   width: 100%;

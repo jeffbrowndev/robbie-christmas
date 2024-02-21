@@ -1,10 +1,10 @@
 import { DataContext } from "@/context/DataContext";
 import MaxWidthContainer from "../layouts/MaxWidthContainer";
 import styles from "@/styles/songList.module.scss";
-import { useContext, useState } from "react";
+import { useContext, useState, useRef } from "react";
 import Song from "../common/Song";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowDownAZ, faFileArrowDown } from "@fortawesome/free-solid-svg-icons";
+import { faArrowDownAZ, faClose } from "@fortawesome/free-solid-svg-icons";
 import { jsPDF } from "jspdf";
 import autoTable from "jspdf-autotable";
 
@@ -12,6 +12,9 @@ import autoTable from "jspdf-autotable";
 const SongList = () => {
   const { songs } = useContext(DataContext);
   const [allSongs, setAllSongs] = useState(songs);
+  const [downloadPopup, showDownloadPopup] = useState(false);
+  const [emptyPlaylistPopup, showEmptyPlaylistPopup] = useState(false);
+  const name = useRef(null);
   
   // filters
   const [genre, setGenre] = useState("All genres");
@@ -69,11 +72,25 @@ const SongList = () => {
     return false;
   }
 
-  const downloadPlaylist = () => {
-    const pdf = new jsPDF();
+  const showPopup = () => {
     const playlist = allSongs.filter(song => song.playlist);
 
-    pdf.text("Robbie Christmas Playlist", 14, 10);
+    if (!playlist.length) {
+      showEmptyPlaylistPopup(true);
+    }
+    else {
+      showDownloadPopup(true);
+    }
+  }
+
+  const downloadPlaylist = (e) => {
+    e.preventDefault();
+    const playlist = allSongs.filter(song => song.playlist);
+    const pdf = new jsPDF();
+    var img = new Image()
+    img.src = 'images/rx-logo.png';
+    pdf.addImage(img, 'png', 145, 3, 50, 8)
+    pdf.text(`${name.current.value}'s playlist`, 14, 9);
 
     autoTable(pdf, {
       head: [["Artist", "Title", "Genre"]],
@@ -81,12 +98,37 @@ const SongList = () => {
     })
 
     pdf.save("playlist.pdf");
+
+    showDownloadPopup(false);
   }
 
   const handlePlaylistOnly = (value) => value === "Playlist" ? setPlaylistOnly(true) : setPlaylistOnly(false);
 
   return (
     <MaxWidthContainer>
+      {emptyPlaylistPopup &&
+        <div className={styles['popup-overlay']}>
+          <div className={styles['popup']}>
+            <FontAwesomeIcon icon={faClose} className={styles['close']} onClick={() => showEmptyPlaylistPopup(false)} />
+            <p>Playlist empty!</p>
+            <button className={styles['accent-button']} onClick={() => showEmptyPlaylistPopup(false)}>
+              CLOSE
+            </button>
+          </div>
+        </div>}
+      {downloadPopup &&
+        <div className={styles['popup-overlay']}>
+          <div className={styles['popup']}>
+            <FontAwesomeIcon icon={faClose} className={styles['close']} onClick={() => showDownloadPopup(false)} />
+            <p>Please enter your name to download a playlist:</p>
+            <form onSubmit={(e) => downloadPlaylist(e)}>
+              <input placeholder="Name" ref={name} required />
+              <button type="submit" className={styles['accent-button']}>
+                DOWNLOAD
+              </button>
+            </form>
+          </div>
+        </div>}
       <div id='song-list' className={styles['song-list']}>
         <div className={styles['song-list-header']}>
           <h2>Song List</h2>
@@ -108,7 +150,7 @@ const SongList = () => {
                       <option value='Playlist'>Playlist</option>
                     </select>
                   </div>
-                  <button id={styles['download-desktop']} className={styles['accent-button']} onClick={() => downloadPlaylist()}>
+                  <button id={styles['download-desktop']} className={styles['accent-button']} onClick={() => showPopup()}>
                     DOWNLOAD PLAYLIST (.pdf)
                   </button>
                 </div>
@@ -130,7 +172,7 @@ const SongList = () => {
           </div>
           <div className={styles['scrolling-song-list']}>{displaySongs()}</div>
         </div>
-        <button id={styles['download-mobile']} className={styles['accent-button']} onClick={() => downloadPlaylist()}>
+        <button id={styles['download-mobile']} className={styles['accent-button']} onClick={() => showPopup()}>
           DOWNLOAD PLAYLIST (.pdf)
         </button>
       </div>

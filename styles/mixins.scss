@@ -17,6 +17,20 @@
   font-size: 14px;
 }
 
+@mixin accent-button-no-margin {
+  border-radius: 4px;
+  padding: 15px 20px;
+  background: none;
+  border: 1px solid $accent;
+  color: $accent;
+  font-family: $roboto;
+  font-size: 14px;
+  cursor: pointer;
+  min-width: 150px;
+  letter-spacing: 1px;
+  transition: $transition;
+}
+
 @mixin accent-button {
   border-radius: 4px;
   padding: 15px 20px;
