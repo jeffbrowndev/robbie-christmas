@@ -272,6 +272,11 @@ export default function App(props) {
       <Head>
         <title>Robbie Christmas</title>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta 
+          name="description" 
+          content="Robbie Christmas is a singer-songwriter and multi-instrumentalist based in Seattle, Washington. 
+          He is best known for his skills in both acoustic and electric guitar, his familiar yet artful sound, and his rare, compelling vocals." />
+        <meta name="keywords" content="wedding singer, wedding singer seattle, corporate musician, wedding musician, live music seattle" />
       </Head>
       <DataContext.Provider value={props}>
         <NavBar />
