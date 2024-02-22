@@ -13,6 +13,7 @@ import { DateTime } from "luxon";
 import SongList from "@/components/sections/SongList";
 import Contact from "@/components/sections/Contact";
 import OriginalMusic from "@/components/sections/OriginalMusic";
+import { createClient } from "contentful";
 
 const getEventLogo = (summary) => {
   if (summary.includes('Willows Lodge'))
@@ -64,204 +65,43 @@ const getSongs = async () => {
 }
 
 export const getStaticProps = async () => {
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_KEY,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
+  });
+
+  const testimonials = await client.getEntries({ content_type: 'testimonial'});
+  const videos = await client.getEntries({ content_type: 'video'});
+  const audio = await client.getEntries({ content_type: 'audio', order: 'fields.artist'});
+  const albums = await client.getEntries({ content_type: 'originalAlbum', order: "-fields.year"});
+
   return {
     props: {
-      testimonials: [
-        {
-          name: "Ashley T",
-          text: "We made the best choice hiring Robbie as the musician for our wedding! We have seen him play at various wineries and events over the years and knew right when we got engaged that we needed him to play at our wedding. We had him play during our ceremony, cocktail hour, dinner, and 'first' dances, and couldn't have been happier. Incredible voice and talent aside (seriously - he is amazing), he was such a pleasure to work with."
-        },
-        {
-          name: "Diana J",
-          text: "I am so glad we found Robbie, and that he was available to play our wedding. He was very responsive and super patient with questions and requests, but more importantly, he is a very talented artist and our guests absolutely loved him. He played the music for our wedding, cocktail hour, and much of dinner before we switched over to a DJ, and it was absolutely perfect",
-        },
-        {
-          name: "Kylie H",
-          text: "I don't have enough words to explain how wonderful Robbie is! He sang at our wedding ceremony, as well as the reception, and he was one of my favorite parts of our day! He has such a beautiful voice, and gives you pages and pages of songs to pick from. He works with couples beforehand to choose song/music styles for your event, and was even willing to learn new songs that weren't on his list."
-        },
-        {
-          name: "Jennifer D",
-          text: "Robbie was AMAZING!! Thanks so much for making our wedding magical."
-        },
-      ],
-      videos: [
-        {
-          title: "Robbie Christmas - After The Storm [Live]",
-          src: "https://www.youtube.com/watch?v=0c1rGBiH_J8&ab_channel=RobbieChristmas",
-          thumbnail: "/images/thumbnails/after-the-storm.jpg"
-        },
-        {
-          title: "Superstar - Robbie Christmas & Company Live [4K]",
-          src: "https://www.youtube.com/watch?v=dUj4-hqkdR4&ab_channel=RobbieChristmas",
-          thumbnail: "/images/thumbnails/superstar.jpg"
-        },
-        {
-          title: "Taking Too Long - Robbie Christmas & Company Live [4K]",
-          src: "https://www.youtube.com/watch?v=Sr6rHW50K-E&ab_channel=RobbieChristmas",
-          thumbnail: "/images/thumbnails/taking-too-long.jpg"
-        },
-        {
-          title: "Official National Anthem Footage [Sang by Robbie Christmas]",
-          src: "https://www.youtube.com/watch?v=WxEludZzP54&t=67s&ab_channel=RobbieChristmas",
-          thumbnail: "/images/thumbnails/national-anthem.jpg"
-        },
-      ],
-      audio: [
-        {
-          title: "Windows Are Rolled Down",
-          artist: "Amos Lee",
-          src: "/audio/windows-are-rolled-down.mp3"
-        },
-        {
-          title: "God Only Knows",
-          artist: "The Beach Boys",
-          src: "/audio/god-only-knows.mp3"
-        },
-        {
-          title: "Father and Son",
-          artist: "Cat Stevens",
-          src: "/audio/father-and-son.mp3"
-        },
-        {
-          title: "I Can't Tell You Why",
-          artist: "The Eagles",
-          src: "/audio/i-cant-tell-you-why.mp3"
-        },
-        {
-          title: "Change The World",
-          artist: "Eric Clapton",
-          src: "/audio/change-the-world.mp3"
-        },
-        {
-          title: "Layla",
-          artist: "Eric Clapton",
-          src: "/audio/layla.wav"
-        },
-        {
-          title: "Thinkin Bout You",
-          artist: "Frank Ocean",
-          src: "/audio/thinkin-bout-you.mp3"
-        },
-        {
-          title: "If Not for You",
-          artist: "George Harrison",
-          src: "/audio/if-not-for-you.mp3"
-        },
-        {
-          title: "Operator",
-          artist: "Jim Croce",
-          src: "/audio/operator.mp3"
-        },
-        {
-          title: "Isn't She Lovely",
-          artist: "Stevie Wonder",
-          src: "/audio/isnt-she-lovely.mp3"
-        },
-        {
-          title: "Mad World",
-          artist: "Tears for Fears",
-          src: "/audio/mad-world.wav"
-        },
-        {
-          title: "Everybody Wants To Rule The World",
-          artist: "Tears for Fears",
-          src: "/audio/everybody-wants-to-rule-the-world.mp3"
-        },
-      ],
+      testimonials: [...testimonials.items.map(testimonial => testimonial.fields)],
+      videos: [...videos.items.map(video => {
+        return {
+          title: video.fields.title,
+          src: video.fields.src,
+          thumbnail: `https:${video.fields.thumbnail.fields.file.url}`
+        }})],
+      audio: [...audio.items.map(song => {
+        return {
+          title: song.fields.title,
+          artist: song.fields.artist,
+          src: `https:${song.fields.src.fields.file.url}`
+        }})],
+      albums: [...albums.items.map(album => {
+        return {
+          title: album.fields.title,
+          year: album.fields.year,
+          type: album.fields.type,
+          songCount: album.fields.songCount,
+          spotifyUrl: album.fields.spotifyUrl,
+          appleMusicUrl: album.fields.appleMusicUrl,
+          imageSrc: `https:${album.fields.imageSrc.fields.file.url}`
+        }})],
       events: await getEvents(),
       songs: await getSongs(),
-      albums: [
-        {
-          title: "Epilogue",
-          year: "2020",
-          type: "Album",
-          songCount: "10",
-          imageSrc: "/images/albums/epilogue.jpg",
-          spotifyUrl: "https://open.spotify.com/album/3KIAzBtU9hBfc7Br3k1iae?si=luzrEqLlR9eWwu2agL-vow",
-          appleMusicUrl: "https://music.apple.com/us/album/epilogue/1520346855",
-        },
-        {
-          title: "Reckless",
-          year: "2020",
-          type: "Single",
-          songCount: "1",
-          imageSrc: "/images/albums/reckless.jpg",
-          spotifyUrl: "https://open.spotify.com/album/6agBtAbscC0fWeRqb1EEg9?si=pbw8WqgJThiZHKw-wFB3TA",
-          appleMusicUrl: "https://music.apple.com/us/album/reckless-feat-linzy-collins-single/1514718825",
-        },
-        {
-          title: "Somewhere in the Quiet",
-          year: "2019",
-          type: "Single",
-          songCount: "1",
-          imageSrc: "/images/albums/somewhere-in-the-quiet.jpg",
-          spotifyUrl: "https://open.spotify.com/album/1iubTLmMSBDU62NybufedI?si=uhaCNDPvThKOpl8GLmRzAA",
-          appleMusicUrl: "https://music.apple.com/us/album/somewhere-in-the-quiet-single/1486032229",
-        },
-        {
-          title: "Fade.",
-          year: "2019",
-          type: "Single",
-          songCount: "1",
-          imageSrc: "/images/albums/fade.jpg",
-          spotifyUrl: "https://open.spotify.com/album/4fLVqXwkmdVg9MvQghLs09?si=3cbtSMMBQ1eZaZq-M8mXlg",
-          appleMusicUrl: "https://music.apple.com/us/album/fade-single/1481019676",
-        },
-        {
-          title: "Synthesize",
-          year: "2019",
-          type: "Single",
-          songCount: "1",
-          imageSrc: "/images/albums/synthesize.jpg",
-          spotifyUrl: "https://open.spotify.com/album/109chd17oG02hWvl1EVIvc?si=BR5qRcBTQbGT2oiMei6APg",
-          appleMusicUrl: "https://music.apple.com/us/album/synthesize-single/1473753474",
-        },
-        {
-          title: "Who I Was",
-          year: "2019",
-          type: "Single",
-          songCount: "1",
-          imageSrc: "/images/albums/who-i-was.jpg",
-          spotifyUrl: "https://open.spotify.com/album/3gHShRgYWzgdWKjJuYw82m?si=TC3NYcteQqqzwRAOEO3VKw",
-          appleMusicUrl: "https://music.apple.com/us/album/who-i-was-single/1462963378",
-        },
-        {
-          title: "Over The Moon",
-          year: "2019",
-          type: "Single",
-          songCount: "1",
-          imageSrc: "/images/albums/over-the-moon.jpg",
-          spotifyUrl: "https://open.spotify.com/album/56X70bxZp76BBl83i3KAGT?si=yo2JFb_WRo25r67myo0sIg",
-          appleMusicUrl: "https://music.apple.com/us/album/over-the-moon-single/1453649793",
-        },
-        {
-          title: "Misery",
-          year: "2019",
-          type: "Single",
-          songCount: "1",
-          imageSrc: "/images/albums/misery.jpg",
-          spotifyUrl: "https://open.spotify.com/album/5KVB2eGuW8bxlNfEsyfQ8P?si=b9veRNwPQEyo9paMe9RfSw",
-          appleMusicUrl: "https://music.apple.com/us/album/misery-single/1448905728",
-        },
-        {
-          title: "When I Finally Get Myself Together",
-          year: "2017",
-          type: "EP",
-          songCount: "6",
-          imageSrc: "/images/albums/when-i-finally-get-myself-together.jpg",
-          spotifyUrl: "https://open.spotify.com/album/5YRifQFYCdAYbRlASuQ3Fg?si=AhJ3hEpKStSExpksQssjmw",
-          appleMusicUrl: "https://music.apple.com/us/album/when-i-finally-get-myself-together/1447189536",
-        },
-        {
-          title: "Few and Far Between",
-          year: "2015",
-          type: "EP",
-          songCount: "5",
-          imageSrc: "/images/albums/few-and-far-between.jpg",
-          spotifyUrl: "https://open.spotify.com/album/2E1fo27Cpo8nbs1lZfCr2k?si=Eo12dDkZQhyXBhKgfIEGzQ",
-          appleMusicUrl: "https://music.apple.com/us/album/far-and-few-between-ep/1446685544",
-        },
-      ]
     }
   }
 }
