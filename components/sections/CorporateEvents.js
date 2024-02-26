@@ -3,27 +3,30 @@ import MaxWidthContainer from "../layouts/MaxWidthContainer";
 import Image from "next/image";
 import AccentLine from "../common/AccentLine";
 import AccentButton from "../common/AccentButton";
-import corporateMain from "@/public/images/corporate-main.jpg";
 import Clients from "./Clients";
+import { useContext } from "react";
+import { DataContext } from "@/context/DataContext";
 
 const CorporateEvents = () => {
+  const { corporateContent } = useContext(DataContext);
+
+  const backgroundStyles = {
+    background: `url(${corporateContent.background})`,
+    backgroundSize: "cover",
+    backgroundPosition: "bottom",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
     <>
-      <div className="fixed-background" id={styles['corporate-background']}>
+      <div className="fixed-background" style={backgroundStyles}>
         <MaxWidthContainer>
           <div id="corporate-events" className={styles['corporate-content']}>
-            <Image className={styles['image']} src={corporateMain} />
+            <Image className={styles['image']} src={corporateContent.mainImage} width={1000} height={1000} />
             <div className={styles['main-content']}>
-              <h2>Corporate Events</h2>
+              <h2>{corporateContent.sectionName}</h2>
               <AccentLine />
-              <p className='main-text'>
-                Robbie Christmas is a seasoned acoustic singer-songwriter known for his pure voice, 
-                masterful guitar playing and vast repertoire of popular music. Robbie has accrued 15+ 
-                years of full-time music industry experience with an ardent following in the Pacific Northwest and beyond.
-                Organizations of all sizes have enlisted Robbie to elevate their event with a musical backdrop curated 
-                from his vast catalog of 600+ songs. Robbie’s client roster includes: Microsoft, Amazon.com, Boeing, 
-                Seattle Seahawks, and many more. 
-              </p>
+              <p className='main-text'>{corporateContent.description}</p>
               <AccentButton text={"LISTEN"} dest='listen' />
               <AccentButton text={"VIEW SONG LIST"} dest='song-list' />
             </div>
@@ -31,7 +34,7 @@ const CorporateEvents = () => {
         </MaxWidthContainer>
       </div>
       <MaxWidthContainer>
-        <Clients />
+        <Clients clients={corporateContent.clients} />
       </MaxWidthContainer>
     </>
   );

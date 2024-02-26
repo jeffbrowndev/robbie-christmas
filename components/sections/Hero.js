@@ -1,44 +1,49 @@
 import styles from '@/styles/hero.module.scss';
 import MaxWidthContainer from '../layouts/MaxWidthContainer';
-import heroImage from "@/public/images/hero-image.jpg";
 import Image from 'next/image';
 import AccentLine from '../common/AccentLine';
 import AccentButton from "../common/AccentButton";
 import ServiceCard from '../common/ServiceCard';
+import { DataContext } from '@/context/DataContext';
+import { useContext } from 'react';
 
-// service card images
-import liveMusic from "@/public/images/live-music.jpg";
-import weddings from "@/public/images/weddings.jpg";
-import corporateEvents from "@/public/images/corporate-events.jpg";
-import originalMusic from "@/public/images/original-music.jpg";
+
 
 const Hero = () => {
+  const { heroContent } = useContext(DataContext);
+
+  const backgroundStyles = {
+    background: `url(${heroContent.background})`,
+    width: "100%",
+    backgroundSize: "cover",
+    backgroundPosition: "top",
+    backgroundRepeat: "no-repeat",
+  }
+
   return (
-    <div className={`${styles['hero']} fixed-background`}>
+    <div style={backgroundStyles} className={`${styles['hero']} fixed-background`} >
       <MaxWidthContainer>
         <div className={styles["hero-content"]}>
           <Image
             className={styles['hero-image']}
-            src={heroImage}
+            src={heroContent.mainImage}
+            width={1000}
+            height={1263}
             alt='Robbie Christmas' />
             <div className={styles['hero-content-right']}>
-              <h1>Intimate, Memorable, & Captivating Live Music.</h1>
-              <h3>Tailored To Make Any Moment The Perfect Moment.</h3>
+              <h1>{heroContent.primaryHeadline}</h1>
+              <h3>{heroContent.secondaryHeadline}</h3>
               <AccentLine />
-              <p>
-                With over 15 years of experience and a catalog of over 600 popular songs, 
-                Robbie sets the tone in the Pacific Northwest with a unique, tailored experience 
-                for each event and celebration.
-              </p>
+              <p>{heroContent.overview}</p>
               <AccentButton text="LISTEN" dest='listen' />
               <AccentButton text="MAKE AN INQUIRY" dest='contact' />
             </div>
         </div>
         <div className={styles['service-cards']}>
-          <ServiceCard text="CALENDAR" image={liveMusic} dest={'calendar'} />
-          <ServiceCard text="WEDDINGS" image={weddings} dest={'weddings'} />
-          <ServiceCard text="CORPORATE EVENTS" image={corporateEvents} dest={'corporate-events'} />
-          <ServiceCard text="ORIGINAL MUSIC" image={originalMusic} dest={'original-music'} />
+          <ServiceCard text="CALENDAR" image={heroContent.calendarImage} dest={'calendar'} />
+          <ServiceCard text="WEDDINGS" image={heroContent.weddingsImage} dest={'weddings'} />
+          <ServiceCard text="CORPORATE EVENTS" image={heroContent.corporateImage} dest={'corporate-events'} />
+          <ServiceCard text="ORIGINAL MUSIC" image={heroContent.originalMusicImage} dest={'original-music'} />
         </div>
       </MaxWidthContainer>
     </div>

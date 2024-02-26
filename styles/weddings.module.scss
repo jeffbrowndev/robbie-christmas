@@ -1,13 +1,6 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
-#weddings-background {
-  background: url("../public/images/weddings-background.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-}
-
 .weddings-content {
   @include service-section-content();
   scroll-margin-top: 75px;

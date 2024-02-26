@@ -2,11 +2,6 @@
 @import "./mixins.scss";
 
 .hero {
-  width: 100%;
-  background: url("../public/images/hero-background.png");
-  background-size: cover;
-  background-position: top;
-  background-repeat: no-repeat;
   display: flex;
   padding-top: $margin-large;
   .hero-content {

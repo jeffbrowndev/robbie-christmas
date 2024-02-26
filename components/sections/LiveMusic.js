@@ -3,25 +3,28 @@ import MaxWidthContainer from "../layouts/MaxWidthContainer";
 import Image from "next/image";
 import AccentLine from "../common/AccentLine";
 import AccentButton from "../common/AccentButton";
-import liveMusic from "@/public/images/live-music-main.jpg";
+import { DataContext } from "@/context/DataContext";
+import { useContext } from "react";
 
 const LiveMusic = () => {
+  const { calendarContent } = useContext(DataContext);
+
+  const backgroundStyles = {
+    background: `url(${calendarContent.background})`,
+    backgroundSize: "cover",
+    backgroundPosition: "bottom",
+    backgroundRepeat: "no-repeat",
+  };
+
   return (
-    <div className="fixed-background" id={styles['live-music-background']}>
+    <div className="fixed-background" style={backgroundStyles}>
       <MaxWidthContainer>
         <div id='calendar' className={styles['live-music-content']}>
-          <Image className={styles['image']} src={liveMusic} />
+          <Image className={styles['image']} src={calendarContent.mainImage} width={1000} height={1000} />
           <div className={styles['main-content']}>
-            <h2>Calendar</h2>
+            <h2>{calendarContent.sectionName}</h2>
             <AccentLine />
-            <p className='main-text'>
-              You can catch Robbie performing regularly at various venues in the Seattle area, 
-              often with no cover charge. During these performances, Robbie showcases his extensive 
-              repertoire of over 600 favorite songs, including original compositions. 
-              It's an excellent opportunity to gauge how Robbie's music can seamlessly complement your event. 
-              If you're planning to attend one of his performances, feel free to send us an email in advance, 
-              and Robbie will love to say “hello” in person
-            </p>
+            <p className='main-text'>{calendarContent.description}</p>
             <AccentButton text={"LISTEN"} dest='listen' />
           </div>
         </div>

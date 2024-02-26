@@ -14,6 +14,8 @@ const ServiceCard = ({ text, image, dest }) => {
       <Image
         className={styles['service-card-image']}
         src={image}
+        width={500}
+        height={500}
         alt={text} />
       <p>{text}</p>
     </div>

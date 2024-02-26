@@ -2,29 +2,31 @@ import styles from "@/styles/originalMusic.module.scss";
 import MaxWidthContainer from "../layouts/MaxWidthContainer";
 import AlbumCarousel from "../carousels/AlbumCarousel";
 import Image from "next/image";
-import originalMusic from "@/public/images/original-music-main.jpg";
 import AccentLine from "../common/AccentLine";
 import Link from "next/link";
+import { useContext } from "react";
+import { DataContext } from "@/context/DataContext";
 
 const OriginalMusic = () => {
+  const { originalMusicContent } = useContext(DataContext);
+
+  const backgroundStyles = {
+    background: `url(${originalMusicContent.background})`,
+    backgroundSize: "cover",
+    backgroundPosition: "top",
+    backgroundRepeat: "no-repeat",
+    paddingBottom: "10px",
+  };
+
   return (
     <>
-      <div className="fixed-background" id={styles['original-music-background']}>
+      <div className="fixed-background" style={backgroundStyles}>
         <MaxWidthContainer>
           <div id="original-music" className={styles['original-music-content']}>
             <div className={styles['main-content']}>
-              <h2>Original Music</h2>
+              <h2>{originalMusicContent.sectionName}</h2>
               <AccentLine />
-              <p className='main-text'>
-                Robbie has dedicated himself to nurturing his passion for songwriting 
-                and releasing his own music for nearly 15 years. Occasionally known as "RX," 
-                short for "Robbie Xmas," this nickname emerged during his days of performing 
-                in high school bands and has since become a familiar part of his musical identity. 
-                Throughout his musical journey, Robbie has produced two full-length albums, one 
-                EP, and seven singles, drawing inspiration from timeless icons like James Taylor, 
-                John Mayer, and George Harrison. You can discover his original music on all major 
-                streaming platforms.
-              </p>
+              <p className='main-text'>{originalMusicContent.description}</p>
               <Link href="https://open.spotify.com/artist/7067KOGZGX4Hyxhjy2g7WK" target="_blank">
                 <button className={styles['accent-button']}>
                   LISTEN ON SPOTIFY
@@ -36,7 +38,7 @@ const OriginalMusic = () => {
                 </button>
               </Link>
             </div>
-            <Image className={styles['image']} src={originalMusic} />
+            <Image className={styles['image']} src={originalMusicContent.mainImage} width={1000} height={1000} />
           </div>
         </MaxWidthContainer>
         <AlbumCarousel />

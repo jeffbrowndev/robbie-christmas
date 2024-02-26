@@ -74,9 +74,50 @@ export const getStaticProps = async () => {
   const videos = await client.getEntries({ content_type: 'video'});
   const audio = await client.getEntries({ content_type: 'audio', order: 'fields.artist'});
   const albums = await client.getEntries({ content_type: 'originalAlbum', order: "-fields.year"});
+  const heroContent = await client.getEntry('20zrBlLri8joUXxdwdeEAT');
+  const calendarContent = await client.getEntry('1L5ABUMVc1GhkalFQNOi0n');
+  const weddingsContent = await client.getEntry('1CwF21yhpyK3u59gi0P69p');
+  const weddingServices = await client.getEntries({ content_type: "weddingService", order: "fields.serviceName" });
+  const corporateContent = await client.getEntry('2HWFLdODKJ2eVQdEXhASD3');
+  const corporateClienets = await client.getEntries({ content_type: "corporateClient" });
+  const originalMusicContent = await client.getEntry('3KbK1M5KZeeB8SIIDkZSHF');
 
   return {
     props: {
+      heroContent: {
+        ...heroContent.fields,
+        mainImage: `https:${heroContent.fields.mainImage.fields.file.url}`,
+        calendarImage: `https:${heroContent.fields.calendarImage.fields.file.url}`,
+        weddingsImage: `https:${heroContent.fields.weddingsImage.fields.file.url}`,
+        corporateImage: `https:${heroContent.fields.corporateImage.fields.file.url}`,
+        originalMusicImage: `https:${heroContent.fields.originalMusicImage.fields.file.url}`,
+        background: `https:${heroContent.fields.background.fields.file.url}`,
+      },
+      calendarContent: {
+        ...calendarContent.fields,
+        mainImage: `https:${calendarContent.fields.mainImage.fields.file.url}`,
+        background: `https:${calendarContent.fields.background.fields.file.url}`,
+      },
+      weddingsContent: {
+        ...weddingsContent.fields,
+        mainImage: `https:${weddingsContent.fields.mainImage.fields.file.url}`,
+        weddingServices: [...weddingServices.items.map(service => service.fields)],
+        background: `https:${weddingsContent.fields.background.fields.file.url}`,
+      },
+      corporateContent: {
+        ...corporateContent.fields,
+        mainImage: `https:${corporateContent.fields.mainImage.fields.file.url}`,
+        background: `https:${corporateContent.fields.background.fields.file.url}`,
+        clients: [...corporateClienets.items.map(client => {
+          return {
+            alt: client.fields.clientName,
+            src: `https:${client.fields.image.fields.file.url}`
+          }})]},
+      originalMusicContent: {
+        ...originalMusicContent.fields,
+        mainImage: `https:${originalMusicContent.fields.mainImage.fields.file.url}`,
+        background: `https:${originalMusicContent.fields.background.fields.file.url}`,
+      },
       testimonials: [...testimonials.items.map(testimonial => testimonial.fields)],
       videos: [...videos.items.map(video => {
         return {
