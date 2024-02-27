@@ -15,6 +15,7 @@ import Contact from "@/components/sections/Contact";
 import OriginalMusic from "@/components/sections/OriginalMusic";
 import { createClient } from "contentful";
 import Partners from "@/components/sections/Partners";
+import MailingList from "@/components/sections/MailingList";
 
 const getEventLogo = (summary) => {
   if (summary.includes('Willows Lodge'))
@@ -164,7 +165,7 @@ export default function App(props) {
         <NavBar />
         <Hero />
         <Testimonials />
-        <LineSeparator />
+        <MailingList />
         <Listen />
         <LiveMusic />
         <Calendar />
