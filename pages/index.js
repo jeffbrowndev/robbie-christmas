@@ -14,6 +14,7 @@ import SongList from "@/components/sections/SongList";
 import Contact from "@/components/sections/Contact";
 import OriginalMusic from "@/components/sections/OriginalMusic";
 import { createClient } from "contentful";
+import Partners from "@/components/sections/Partners";
 
 const getEventLogo = (summary) => {
   if (summary.includes('Willows Lodge'))
@@ -171,6 +172,8 @@ export default function App(props) {
         <CorporateEvents />
         <OriginalMusic />
         <SongList />
+        <LineSeparator />
+        <Partners />
         <Contact />
       </DataContext.Provider>
     </>

@@ -1,0 +1,39 @@
+@import "./variables.scss";
+@import "./mixins.scss";
+
+.partners-container {
+  padding: $margin-large 0;
+  h3 {
+    text-align: center;
+    margin-bottom: $margin-small;
+  }
+  .partners {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: $margin-xsmall;
+    .partner-category {
+      h4 {
+        color: $accent;
+      }
+      ul {
+        list-style: none;
+        font-family: $roboto;
+        font-size: 14px;
+        li {
+          margin-top: 15px;
+          color: $dark-grey !important;
+        }
+        @include mQ($tablet) {
+          font-size: 12px;
+        }
+      }
+    }
+    @include mQ($tablet) {
+      justify-content: space-around;
+    }
+  }
+  @include mQ($tablet) {
+    padding: $margin-large-desktop-small 0;
+  }
+}
