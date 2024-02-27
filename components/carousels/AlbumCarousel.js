@@ -5,6 +5,11 @@ import { DataContext } from "@/context/DataContext";
 import { useContext } from "react";
 
 const responsive = {
+  desktopHuge: {
+    breakpoint: { max: 8000, min: 3000 },
+    items: 10,
+    slidesToSlide: 1
+  },
   desktopLarge: {
     breakpoint: { max: 3000, min: 1024 },
     items: 7,
