@@ -1,6 +1,7 @@
 import styles from "@/styles/listen.module.scss";
 import { useEffect, useState } from "react";
 import Image from "next/image";
+import play from "@/public/images/play-video.png";
 
 const Video = ({ video, playing, index, setVideoPlaying }) => {
   const [embedUrl, setEmbedUrl] = useState(null);
@@ -19,7 +20,8 @@ const Video = ({ video, playing, index, setVideoPlaying }) => {
       {!playing && 
         <>
           <div className={styles['thumbnail-container']}>
-            <Image className={styles['play-button']} alt="thumbnail" src={video.thumbnail} onClick={() => setVideoPlaying(index)} fill />
+            <Image className={styles['play-button']} alt="thumbnail" src={video.thumbnail} fill />
+            <Image className={styles['play-icon']} alt="play" src={play} onClick={() => setVideoPlaying(index)} />
           </div>
           <div className={styles['video-overlay']}>
             <p>{video.title}</p>

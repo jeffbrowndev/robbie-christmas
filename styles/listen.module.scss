@@ -17,63 +17,9 @@
       margin-bottom: $margin-large-desktop-small;
     }
   }
-  .video-gallery {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-    .video-container {
-      border-radius: 5px;
-      overflow: hidden;
-      aspect-ratio: 16 / 9;
-      background: $black;
-      width: 49.5%;
-      margin-bottom: 1%;
-      position: relative;
-      @include mQ($tablet) {
-        width: 100%;
-        margin-bottom: 2vw;
-        .video-overlay {
-          opacity: 0.75 !important;
-          p {
-            padding: 10px 0 !important;
-          }
-        }
-      }
-      .video-overlay {
-        position: absolute;
-        left: 0;
-        bottom: 0;
-        width: 100%;
-        background: $black;
-        opacity: 0;
-        transition: $transition opacity;
-        text-align: center;
-        p {
-          color: white;
-          font-family: $roboto-light;
-          font-size: 18px;
-          padding: $margin-xsmall 0;
-        }
-      }
-      .video {
-        width: 100%;
-        height: 100%;
-        border: none;
-      }
-      .thumbnail-container {
-        width: 100%;
-        height: 100%;
-        position: relative;
-        cursor: pointer;
-      }
-    } & .video-container:hover .video-overlay {
-      opacity: 0.75;
-    }
-  }
   .all-audio {
     display: flex;
     justify-content: space-between;
-    margin-bottom: calc($margin-large - $margin-xsmall);
     width: 100%;
     flex-wrap: wrap;
     .audio {
@@ -81,10 +27,7 @@
       justify-content: left;
       align-items: center;
       margin-bottom: $margin-xsmall;
-      width: 25%;
-      @include mQ($desktop-small) {
-        width: calc(100% / 3);
-      }
+      width: calc(100% / 3);
       @include mQ($tablet) {
         width: 50%;
       }
@@ -128,4 +71,60 @@
   @include mQ($desktop-small) {
     margin: $margin-large-desktop-small 0;
   }
+}
+
+.video-container {
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background: $black;
+  width: 99%;
+  position: relative;
+  @include mQ($tablet) {
+    width: 100%;
+    margin-bottom: 2vw;
+    .video-overlay {
+      opacity: 0.75 !important;
+      p {
+        padding: 10px 0 !important;
+      }
+    }
+  }
+  .video-overlay {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    background: $black;
+    opacity: 0;
+    transition: $transition opacity;
+    text-align: center;
+    p {
+      color: white;
+      font-family: $roboto-light;
+      font-size: 18px;
+      padding: $margin-xsmall 0;
+    }
+  }
+  .video {
+    width: 100%;
+    height: 100%;
+    border: none;
+  }
+  .thumbnail-container {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    .play-icon {
+      width: 8%;
+      height: 18%;
+      position: absolute;
+      top: 41%;
+      left: 46%;
+      cursor: pointer;
+    }
+  }
+}
+
+.video-container:hover .video-overlay {
+  opacity: 0.75;
 }
