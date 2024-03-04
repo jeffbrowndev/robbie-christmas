@@ -5,7 +5,7 @@ import Image from "next/image";
 import rxLogo from "@/public/images/rx-logo-footer.png";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCopy } from "@fortawesome/free-solid-svg-icons";
-import { faFacebook, faSpotify, faInstagram, faYoutube } from "@fortawesome/free-brands-svg-icons";
+import { faFacebook, faSpotify, faInstagram, faYoutube, faItunes } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 
 const Contact = () => {
@@ -54,8 +54,11 @@ const Contact = () => {
             <div className={styles['social-media']}>
               <h3>Follow</h3>
               <div className={styles['icons']}>
-                <Link href="https://open.spotify.com/artist/7067KOGZGX4Hyxhjy2g7WK" target="_blank">
+                <Link href="https://open.spotify.com/artist/6uIVLxe5YmjFYsIOWH34n4" target="_blank">
                   <FontAwesomeIcon className={styles['icon']} icon={faSpotify} />
+                </Link>
+                <Link href="https://music.apple.com/us/artist/robbie-christmas/415963786" target="_blank">
+                  <FontAwesomeIcon className={styles['icon']} icon={faItunes} />
                 </Link>
                 <Link href="https://www.youtube.com/@RXRobbie" target="_blank">
                   <FontAwesomeIcon className={styles['icon']} icon={faYoutube} />
