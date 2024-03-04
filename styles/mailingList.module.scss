@@ -6,6 +6,10 @@
   padding: $margin-small 0;
   color: $dark-grey;
   text-align: center;
+  scroll-margin-top: 75px;
+  @include mQ($tablet) {
+    scroll-margin-top: 60px;
+  }
 }
 
 #mc_embed_signup_scroll {

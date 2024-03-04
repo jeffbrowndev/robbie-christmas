@@ -3,7 +3,7 @@ import styles from "@/styles/mailingList.module.scss";
 
 const MailingList = () => {
   return (
-    <div className={styles['mailing-list-container']}>
+    <div id="signup" className={styles['mailing-list-container']}>
       <MaxWidthContainer>
         <h3>Join the mailing list</h3>
         <div id="mc_embed_shell">
