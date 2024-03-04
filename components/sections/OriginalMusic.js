@@ -27,12 +27,12 @@ const OriginalMusic = () => {
               <h2>{originalMusicContent.sectionName}</h2>
               <AccentLine />
               <p className='main-text'>{originalMusicContent.description}</p>
-              <Link href="https://open.spotify.com/artist/7067KOGZGX4Hyxhjy2g7WK" target="_blank">
+              <Link href="https://open.spotify.com/artist/6uIVLxe5YmjFYsIOWH34n4" target="_blank">
                 <button className={styles['accent-button']}>
                   LISTEN ON SPOTIFY
                 </button>
               </Link>
-              <Link href="https://music.apple.com/us/artist/rx/1358469798" target="_blank">
+              <Link href="https://music.apple.com/us/artist/robbie-christmas/415963786" target="_blank">
                 <button className={styles['accent-button']}>
                   LISTEN ON APPLE MUSIC
                 </button>
