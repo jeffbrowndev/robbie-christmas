@@ -83,6 +83,12 @@ export const getStaticProps = async () => {
   const corporateContent = await client.getEntry('2HWFLdODKJ2eVQdEXhASD3');
   const corporateClienets = await client.getEntries({ content_type: "corporateClient" });
   const originalMusicContent = await client.getEntry('3KbK1M5KZeeB8SIIDkZSHF');
+  
+  const partners = await client.getEntries({ content_type: "partner" });
+  const weddingPlanners = partners.items.filter(partner => partner.fields.type === "Wedding planner").map(weddingPlanner => weddingPlanner.fields);
+  const photographers = partners.items.filter(photographer => photographer.fields.type === "Photographer").map(photographer => photographer.fields);
+  const caterers = partners.items.filter(caterer => caterer.fields.type === "Caterer").map(caterer => caterer.fields);
+  const venues = partners.items.filter(venue => venue.fields.type === "Venue").map(venue => venue.fields);
 
   return {
     props: {
@@ -145,6 +151,12 @@ export const getStaticProps = async () => {
         }})],
       events: await getEvents(),
       songs: await getSongs(),
+      partners: {
+        weddingPlanners,
+        photographers,
+        caterers,
+        venues
+      }
     }
   }
 }
@@ -153,8 +165,6 @@ export default function App(props) {
   return (
     <>
       <Head>
-        <title>Robbie Christmas</title>
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
         <meta 
           name="description" 
           content="Robbie Christmas is a singer-songwriter and multi-instrumentalist based in Seattle, Washington. 
