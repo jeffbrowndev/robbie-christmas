@@ -31,8 +31,9 @@ const getEventLogo = (summary) => {
 const getEvents = async () => {
   const apiKey = process.env.API_KEY;
   const id = process.env.CALENDAR_ID;
-  const now = new Date().toISOString();
-  const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${apiKey}&timeMin=${now}&singleEvents=true&orderBy=startTime`;
+  const now = Date.now();
+  const date = new Date(now).toISOString();
+  const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${apiKey}&timeMin=${date}&singleEvents=true&orderBy=startTime`;
   const res = await fetch(url);
   const data = await res.json();
 
