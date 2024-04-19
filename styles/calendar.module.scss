@@ -9,11 +9,11 @@
     text-align: center;
     font-family: $roboto;
     font-weight: 200;
-    margin-bottom: 30px;
-    text-decoration: underline;
+    margin-bottom: 40px;
     color: $medium-grey;
+    line-height: 1.5;
     @include mQ(900px) {
-      font-size: 18px;
+      font-size: 24px;
     }
   }
   .accent-button {
