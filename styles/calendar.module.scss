@@ -4,6 +4,18 @@
 .calendar {
   padding-top: calc($margin-large - 45px);
   margin-bottom: $margin-large;
+  .no-performances {
+    font-size: 30px;
+    text-align: center;
+    font-family: $roboto;
+    font-weight: 200;
+    margin-bottom: 30px;
+    text-decoration: underline;
+    color: $medium-grey;
+    @include mQ(900px) {
+      font-size: 18px;
+    }
+  }
   .accent-button {
     @include accent-button();
   }
