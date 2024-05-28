@@ -47,7 +47,7 @@ const Calendar = () => {
   return (
     <MaxWidthContainer>
       <div className={styles['calendar']} id="events">
-        <p className={styles['no-performances']}>No Performances from April&nbsp;23rd&nbsp;to&nbsp;May&nbsp;29th</p>
+        {/* <p className={styles['no-performances']}>No Performances from April&nbsp;23rd&nbsp;to&nbsp;May&nbsp;29th</p> */}
         <div className={styles['events']}>
           {visibleEvents && visibleEvents.map((data, index) => <Event data={data} key={index} />)}
         </div>
