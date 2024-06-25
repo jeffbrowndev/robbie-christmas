@@ -34,7 +34,7 @@ const getEvents = async () => {
   const now = Date.now();
   const date = new Date(now).toISOString();
   const url = `https://www.googleapis.com/calendar/v3/calendars/${id}/events?key=${apiKey}&timeMin=${date}&singleEvents=true&orderBy=startTime`;
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: 'no-store' });
   const data = await res.json();
 
   return data.items.map(e => {
@@ -53,7 +53,7 @@ const getSongs = async () => {
   const apiKey = process.env.API_KEY;
   const id = process.env.SHEETS_ID;
   const url = `https://sheets.googleapis.com/v4/spreadsheets/${id}/values/Sheet1!A2:Z?key=${apiKey}`;
-  const res = await fetch(url);
+  const res = await fetch(url, { cache: 'no-store' });
   const data = await res.json();
 
   return data.values.map((s, i) => {
