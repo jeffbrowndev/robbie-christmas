@@ -67,7 +67,7 @@ const getSongs = async () => {
   });
 }
 
-export const getStaticProps = async () => {
+export const getServerSideProps = async () => {
   const client = createClient({
     space: process.env.CONTENTFUL_SPACE_KEY,
     accessToken: process.env.CONTENTFUL_ACCESS_TOKEN
