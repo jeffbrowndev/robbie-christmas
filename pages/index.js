@@ -90,6 +90,8 @@ export const getServerSideProps = async () => {
   const photographers = partners.items.filter(photographer => photographer.fields.type === "Photographer").map(photographer => photographer.fields);
   const caterers = partners.items.filter(caterer => caterer.fields.type === "Caterer").map(caterer => caterer.fields);
   const venues = partners.items.filter(venue => venue.fields.type === "Venue").map(venue => venue.fields);
+  const videographers = partners.items.filter(venue => venue.fields.type === "Videographer").map(venue => venue.fields);
+  const djs = partners.items.filter(venue => venue.fields.type === "DJ").map(venue => venue.fields);
 
   return {
     props: {
@@ -156,7 +158,9 @@ export const getServerSideProps = async () => {
         weddingPlanners,
         photographers,
         caterers,
-        venues
+        venues,
+        videographers,
+        djs
       }
     }
   }

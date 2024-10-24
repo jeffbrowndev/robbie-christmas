@@ -28,6 +28,14 @@ export const Partners = () => {
             <h4>Venues</h4>
             <ul>{partners.venues.map(venue => <Link target="_blank" href={venue.url}><li>{venue.name}</li></Link>)}</ul>
           </div>
+          <div className={styles['partner-category']}>
+            <h4>DJ's</h4>
+            <ul>{partners.djs.map(dj => <Link target="_blank" href={dj.url}><li>{dj.name}</li></Link>)}</ul>
+          </div>
+          <div className={styles['partner-category']}>
+            <h4>Videography</h4>
+            <ul>{partners.videographers.map(videographer => <Link target="_blank" href={videographer.url}><li>{videographer.name}</li></Link>)}</ul>
+          </div>
         </div>
       </div>
     </MaxWidthContainer>

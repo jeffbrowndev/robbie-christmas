@@ -26,6 +26,7 @@
           color: $dark-grey !important;
         }
         @include mQ($tablet) {
+          width: 160px;
           font-size: 12px;
         }
       }
