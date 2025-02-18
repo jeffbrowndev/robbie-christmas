@@ -46,7 +46,7 @@ const Calendar = () => {
 
   return (
     <MaxWidthContainer>
-      {visibleEvents.length > 0 ? 
+      {(visibleEvents && visibleEvents.length > 0) ? 
       <div className={styles['calendar']} id="events">
         <div className={styles['events']}>
           {visibleEvents.map((data, index) => <Event data={data} key={index} />)}
