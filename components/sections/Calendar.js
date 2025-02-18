@@ -46,22 +46,22 @@ const Calendar = () => {
 
   return (
     <MaxWidthContainer>
+      {visibleEvents.length > 0 ? 
       <div className={styles['calendar']} id="events">
-        {/* <p className={styles['no-performances']}>No Performances from April&nbsp;23rd&nbsp;to&nbsp;May&nbsp;29th</p> */}
         <div className={styles['events']}>
-          {visibleEvents && visibleEvents.map((data, index) => <Event data={data} key={index} />)}
+          {visibleEvents.map((data, index) => <Event data={data} key={index} />)}
         </div>
         <div className={styles['button-container']}>
-        {visibleEvents && visibleEvents.length <= events.length && 
+        {visibleEvents.length <= events.length && 
           <button onClick={() => showMore()} className={styles['accent-button']}>
             SHOW MORE
           </button>}
-        {visibleEvents && visibleEvents.length > 5 && 
+        {visibleEvents.length > 5 && 
           <button onClick={() => showLess()} className={styles['accent-button']}>
             SHOW LESS
           </button>}
         </div>
-      </div>
+      </div> : <h3 className={styles['no-events']}>No events are currently scheduled. Please check back later.</h3>}
     </MaxWidthContainer>
   )
 }

@@ -1,6 +1,14 @@
 @import "./variables.scss";
 @import "./mixins.scss";
 
+.no-events {
+  color: $dark-grey;
+  text-align: center;
+  margin: $margin-large 0;
+  @include mQ(900px) {
+    margin: $margin-large-desktop-small 0;
+  }
+}
 .calendar {
   padding-top: calc($margin-large - 45px);
   margin-bottom: $margin-large;
